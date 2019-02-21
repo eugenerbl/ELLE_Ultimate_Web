@@ -93,7 +93,7 @@ input, input::-webkit-input-placeholder {
 .main-center{
  	margin-top: 30px;
  	margin: 0 auto;
- 	max-width: 400px;
+ 	max-width: 800px;
     padding: 10px 40px;
 	background: #3F6184; /*#009edf;*/
 	color: #FFF;
