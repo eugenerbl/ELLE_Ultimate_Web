@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>My Profile | ELLE Ultimate</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Favicons -->
+	<link rel="icon" href="img/favicon.ico" >
+	<link rel="apple-touch-icon" href="../img/ELLE-Icon-circle.png" >
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+
+	<!-- Bootstrap CSS File -->
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Chart.js for graphs -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+	
+	<link href="../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<script src="../js/profile.js"></script>
+	<script src="../js/charts.js"></script>
+</head>
+
+<body>
+	<!-- Header -->
+	<header id="header">
+		<div class="container">
+			<div id="logo" class="pull-left">
+				<a href="index.html"><img src="../img/ELLE-Background-Full.png" alt="ELLE Ultimate"
+				title="Home" style="width:150px; height:42px; border:0;"/></a>
+			</div>
+
+			<nav id="nav-menu-container">
+			<ul class="nav-menu">
+				<li><a href="download.html">Download</a></li>
+				<li><a href="profile.html">My Profile</a></li>
+				<li><a href="signup.html">Sign Up</a></li>
+				<li><a href="login.html">Login</a></li>
+				<li><a href="#" class="github"><i class="fa fa-github fa-lg"></i></a></li>
+			</ul>
+			</nav><!-- #nav-menu-container -->
+		</div>
+	</header>
+ 
+	<div class="container bootstrap snippet">
+		<div class="row"><div class="col-sm-3 text-center"><br><h1>Username</h1></div></div>
+		
+		<div class="row">
+			<div class="col-sm-3">
+				<!--left col-->
+				<div class="text-center">
+					<div class="center-block portrait">
+						<img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+					</div>
+					<h6>Change photo below...</h6>
+					<input type="file" class="text-center center-block file-upload">
+				</div>
+				<br>	  
+			  
+				<!-- Selection Menu -->
+				<ul class="list-group" id="list-group">
+					<li class="list-group-item text-center bright">
+						<strong><a href="stats.html">Statistics</a></strong></li>
+					<li class="list-group-item text-center">
+						<strong><a href="sessions.html">Sessions</a></strong></li>
+					<li class="list-group-item text-center bright">
+						<strong><a href="packs.html">Language Packs</a></strong></li>
+					<li class="list-group-item text-center">
+						<strong><a href="vocab.html">Vocabulary</a></strong></li>
+					<li class="list-group-item text-center bright active">
+						<strong><a href="#">Settings</a></strong></li>
+				</ul>
+			</div><!--/col-3-->
+			
+			<div class="col-sm-9">
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+					<li><a data-toggle="tab" href="#graph">Graph</a></li>
+					<li><a data-toggle="tab" href="#table-data">Table</a></li>
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane active" id="home">
+						<form class="form" action="##" method="post" id="registrationForm">
+							<div class="form-group">
+								<div class="col-xs-6">
+									<label for="first_name"><h4>First name</h4></label>
+									<input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-xs-6">
+									<label for="last_name"><h4>Last name</h4></label>
+									<input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name">
+								</div>
+							</div>
+							<div class="form-group">	  
+								<div class="col-xs-6">
+									<label for="phone"><h4>Phone</h4></label>
+									<input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-xs-6">
+									<label for="mobile"><h4>Mobile</h4></label>
+									<input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number">
+								</div>
+							</div>
+							<div class="form-group"> 
+								<div class="col-xs-6">
+									<label for="email"><h4>Email</h4></label>
+									<input type="email" class="form-control" name="email" id="email" placeholder="you@email.com">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-xs-6">
+									<label for="email"><h4>Location</h4></label>
+									<input type="email" class="form-control" id="location" placeholder="somewhere">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-xs-12">
+									<br>
+									<button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+									<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+								</div>
+							</div>
+						</form>
+						<hr>
+					</div>
+
+					<div class="tab-pane" id="graph">
+						<canvas id="myChart" aria-label="Hello" role="img">
+							<p>Sorry, but it appears you don't have canvas elements enabled.</p>
+						</canvas>
+					</div>
+					
+					<div class="tab-pane" id="table-data">
+						<div style="text-align: center;">
+							<h3>Sessions</h3><br>
+						</div>
+						<div class="tg-wrap">
+						<table class="tg" style="undefined;table-layout: fixed; width: 500px">
+							<colgroup>
+							<col style="width: 125px">
+							<col style="width: 125px">
+							<col style="width: 125px">
+							<col style="width: 125px">
+							</colgroup>
+						  <tr>
+							<th class="tg-krh3">Date</th>
+							<th class="tg-krh3">Time</th>
+							<th class="tg-krh3">Score</th>
+							<th class="tg-krh3">Accuracy</th>
+						  </tr>
+						  <tr>
+							<td class="tg-laxj">02/04/2019</td>
+							<td class="tg-laxj">3:10 pm</td>
+							<td class="tg-laxj">710</td>
+							<td class="tg-laxj">87%</td>
+						  </tr>
+						  <tr>
+							<td class="tg-uys7">01/30/2019</td>
+							<td class="tg-uys7">11:30 am</td>
+							<td class="tg-uys7">1500</td>
+							<td class="tg-uys7">100%</td>
+						  </tr>
+						  <tr>
+							<td class="tg-laxj"></td>
+							<td class="tg-laxj"></td>
+							<td class="tg-laxj"></td>
+							<td class="tg-laxj"></td>
+						  </tr>
+						  <tr>
+							<td class="tg-uys7"></td>
+							<td class="tg-uys7"></td>
+							<td class="tg-uys7"></td>
+							<td class="tg-uys7"></td>
+						  </tr>
+						  <tr>
+							<td class="tg-laxj"></td>
+							<td class="tg-laxj"></td>
+							<td class="tg-laxj"></td>
+							<td class="tg-laxj"></td>
+						  </tr>
+						</table></div>
+					</div>
+
+				</div><!--/tab-pane-->
+			</div><!--/tab-content-->
+		</div><!--/col-9-->
+	</div><!--/row-->
+	
+</body>
+</html>
