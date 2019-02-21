@@ -27,7 +27,7 @@ class UserList extends Component {
       var headers = {
           'Authorization': 'Bearer ' + localStorage.getItem('jwt')
       }
-          axios.post('http://10.171.204.206/admin', data, {headers:headers})
+          axios.post('http://45.55.61.182/admin', data, {headers:headers})
           .then(res => {
             console.log(res.data);
           }).catch(function (error) {
@@ -36,7 +36,7 @@ class UserList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://10.171.204.206/users', {
+        axios.get('http://45.55.61.182/users', {
           headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') }
         }).then(res => {
             console.log(res.data);

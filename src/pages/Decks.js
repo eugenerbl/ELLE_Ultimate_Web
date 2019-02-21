@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Collapse, Button, Card, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
-
+  
 import AddCard from '../components/Decks/AddCard';
 import DeckNav from '../components/Decks/DeckNav';
 import Deck from '../components/Decks/Deck';
@@ -53,7 +53,7 @@ export default class Decks extends Component {
   }
 
   componentDidMount() {
-      axios.get('http://10.171.204.206/decks/49', {
+      axios.get('http://45.55.61.182/decks/49', {
         headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') }
       }).then(res => {
           console.log(res.data);
@@ -72,7 +72,7 @@ export default class Decks extends Component {
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('jwt')
     }
-        axios.delete('http://10.171.204.206/deck', data, {headers:headers})
+        axios.delete('http://45.55.61.182/deck', data, {headers:headers})
         .then(res => {
           console.log(res.data);
         }).catch(function (error) {
@@ -89,7 +89,7 @@ export default class Decks extends Component {
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('jwt')
     }
-        axios.post('http://10.171.204.206/deck', data, {headers:headers})
+        axios.post('http://45.55.61.182/deck', data, {headers:headers})
         .then(res => {
           console.log(res.data);
         }).catch(function (error) {
