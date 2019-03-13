@@ -13,11 +13,6 @@ import '../lib/font-awesome/css/font-awesome.min.css';
 import '../lib/owlcarousel/assets/owl.carousel.min.css';
 import '../lib/ionicons/css/ionicons.min.css';
 
-const mainLogoStyle = {
-	width: '150px',
-	height: '42px',
-	border: '0'
-};
 
 export default class Decks extends Component {
   constructor() {
@@ -53,7 +48,7 @@ export default class Decks extends Component {
   }
 
   componentDidMount() {
-      axios.get('http://10.171.204.206/decks/49', {
+      axios.get('http://45.55.61.182/decks/49', {
         headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') }
       }).then(res => {
           console.log(res.data);
@@ -72,7 +67,7 @@ export default class Decks extends Component {
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('jwt')
     }
-        axios.delete('http://10.171.204.206/deck', data, {headers:headers})
+        axios.delete('http://45.55.61.182/deck', data, {headers:headers})
         .then(res => {
           console.log(res.data);
         }).catch(function (error) {
@@ -89,7 +84,7 @@ export default class Decks extends Component {
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('jwt')
     }
-        axios.post('http://10.171.204.206/deck', data, {headers:headers})
+        axios.post('http://45.55.61.182/deck', data, {headers:headers})
         .then(res => {
           console.log(res.data);
         }).catch(function (error) {
@@ -121,7 +116,7 @@ export default class Decks extends Component {
 			<div className="container">
 				<div id="logo" className="pull-left">
 					<Link to='/'><img src={require('../Images/ELLE/ELLE-Background-Full.png')} alt="ELLE Ultimate"
-					title="Home" style={mainLogoStyle}/></Link>
+					title="Home" className="mainLogoStyle"/></Link>
 				</div>
 
 				<nav id="nav-menu-container">
@@ -130,12 +125,21 @@ export default class Decks extends Component {
 						<li><Link to='/profile'>My Profile</Link></li>
 						<li><Link to='/signup'>Sign Up</Link></li>
 						<li><Link to='/login'>Login</Link></li>
-						<li><a href="www.google.com" className="github"><i className="fa fa-github fa-lg"></i></a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
+		<br></br>
 		
+		<div className="btn-group" style={{width: '100%'}}>
+			<button><Link to="/profile" className="customLink">Profile</Link></button>
+			<button className="active"><Link to="/decks" className="customLink">Decks</Link></button>
+			<button><Link to="/sessions" className="customLink">Sessions</Link></button>
+			<button><Link to="/userlist" className="customLink">User List</Link></button>
+			<button><Link to="/logout" className="customLink">Sign Out</Link></button>
+		</div>
+		<br></br><br></br>
+	  
         <Row><h3>Your Elle VR Decks:</h3></Row>
         <Row className="Seperated Col">
         <Col className="Left Column" xs="3">

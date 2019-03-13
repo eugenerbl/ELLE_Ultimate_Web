@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Input, Container } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Container, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -7,12 +7,6 @@ import '../stylesheets/loginstyle.css';
 import '../stylesheets/style.css';
 import '../lib/bootstrap/css/bootstrap.min.css';
 import '../lib/ionicons/css/ionicons.min.css';
-
-const mainLogoStyle = {
-	width: '150px',
-	height: '42px',
-	border: '0'
-};
 
 export default class Login extends Component {
   constructor() {
@@ -55,7 +49,7 @@ export default class Login extends Component {
 			<div className="container">
 				<div id="logo" className="pull-left">
 					<Link to='/'><img src={require('../Images/ELLE/ELLE-Background-Full.png')} alt="ELLE Ultimate"
-					title="Home" style={mainLogoStyle}/></Link>
+					title="Home" className="mainLogoStyle"/></Link>
 				</div>
 
 				<nav id="nav-menu-container">
@@ -64,7 +58,6 @@ export default class Login extends Component {
 						<li><Link to='/profile'>My Profile</Link></li>
 						<li><Link to='/signup'>Sign Up</Link></li>
 						<li><Link to='/login'>Login</Link></li>
-						<li><a href="www.google.com" className="github"><i className="fa fa-github fa-lg"></i></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -100,6 +93,7 @@ export default class Login extends Component {
 			<Form onSubmit={e => this.submit(e)}>
 			
 			<FormGroup>
+				<Label for="userName">Username:</Label>
 				<Input type="username" name="username"
 				onChange={e => this.change(e)}
 				value={this.state.username}
@@ -108,6 +102,7 @@ export default class Login extends Component {
 			{' '}
 			
 			<FormGroup>
+				<Label for="password">Password:</Label>
 				<Input type="password" name="password"
 				onChange={e => this.change(e)}
 				value={this.state.password}

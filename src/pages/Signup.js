@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input, FormFeedback, FormText, Button, Container } from 'reactstrap';
+import { Form, FormGroup, Label, Input, FormFeedback, Button, Container } from 'reactstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -7,12 +7,6 @@ import '../stylesheets/loginstyle.css';
 import '../stylesheets/style.css';
 import '../lib/bootstrap/css/bootstrap.min.css';
 import '../lib/ionicons/css/ionicons.min.css';
-
-const mainLogoStyle = {
-	width: '150px',
-	height: '42px',
-	border: '0'
-};
 
 export default class Signup extends React.Component {
 	constructor() {
@@ -47,7 +41,7 @@ export default class Signup extends React.Component {
 		console.log(this.state.username);
 		console.log(this.state.sex);
 		e.preventDefault();
-		axios.post('http://10.171.204.206/register', {
+		axios.post('http://45.55.61.182/register', {
 			username: this.state.username,
 			password: this.state.password,
  			age: this.state.age,
@@ -64,11 +58,11 @@ export default class Signup extends React.Component {
     return (
 	
 	<Container>
-	<header id="header">
+		<header id="header">
 			<div className="container">
 				<div id="logo" className="pull-left">
 					<Link to='/'><img src={require('../Images/ELLE/ELLE-Background-Full.png')} alt="ELLE Ultimate"
-					title="Home" style={mainLogoStyle}/></Link>
+					title="Home" className="mainLogoStyle"/></Link>
 				</div>
 
 				<nav id="nav-menu-container">
@@ -77,67 +71,71 @@ export default class Signup extends React.Component {
 						<li><Link to='/profile'>My Profile</Link></li>
 						<li><Link to='/signup'>Sign Up</Link></li>
 						<li><Link to='/login'>Login</Link></li>
-						<li><a href="www.google.com" className="github"><i className="fa fa-github fa-lg"></i></a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
 		
-			<div body>
-	      <Form onSubmit={e => this.submit(e)}>
-	       <FormGroup>
-	          <Label for="userName">Username</Label>
-	          <Input value={this.state.username}
-							onChange={e => this.change(e)}
-							id="username"
-							name="username"
-							placeholder="Username"
-							/>
-	          <FormFeedback>You will not be able to see this</FormFeedback>
-	          <FormText>Username to be Identified on the Site.</FormText>
-	        </FormGroup>
-	        <FormGroup>
-	          <Label for="age">Age:</Label>
-	          <Input value={this.state.age}
-							onChange={e => this.change(e)}
-							id="age"
-							name="age"
-							placeholder="18"
-							/>
-	          <FormText>Your Age.</FormText>
-	        </FormGroup>
-					<FormGroup>
-						<Label for="sex">Sex:</Label>
-						<Input value={this.state.sex}
-							onChange={(e) => this.handleChange(e)}
-							type="select"
-							name="sex"
-							id="sex">
-							<option value="F">Male</option>
-							<option value="M">Female</option>
-						</Input>
-					</FormGroup>
-					<FormGroup>
-						<Label for="motivation" sm={2}>Movitvation:</Label>
-						<Input value={this.state.motivation}
-							onChange={e => this.change(e)}
-							type="textarea"
-							name="motivation"
-							id="motivation" />
-					</FormGroup>
-	        <FormGroup>
-	          <Label for="password">Password</Label>
-	          <Input value={this.state.password}
-							onChange={e => this.change(e)}
-							type="text"
-							id="password"
-							name="password"
-							placeholder="*********"/>
-	          <FormText>Please enter your chosen password.</FormText>
-	        </FormGroup>
-					<Button type="submit">Signup</Button>
-	      </Form>
-					<Link to='/login'>Login</Link>
+			<div className="row main">
+			<div className="main-login main-center">
+			<h4 style={{textAlign: 'center'}}>Start your ELLE experience today.</h4>
+			
+			<Form onSubmit={e => this.submit(e)}>
+			<FormGroup>
+				<Label for="userName">Username:</Label>
+					<Input value={this.state.username}
+						onChange={e => this.change(e)}
+						id="username"
+						name="username"
+						placeholder="Username"
+					/>
+				<FormFeedback>You will not be able to see this</FormFeedback>
+			</FormGroup>
+			<FormGroup>
+				<Label for="age">Age:</Label>
+					<Input value={this.state.age}
+						onChange={e => this.change(e)}
+						id="age"
+						name="age"
+						placeholder="18"
+					/>
+			</FormGroup>
+			<FormGroup>
+				<Label for="sex">Sex:</Label>
+					<Input value={this.state.sex}
+						onChange={(e) => this.handleChange(e)}
+						type="select"
+						id="sex"
+						name="sex">
+						<option value="F">Male</option>
+						<option value="M">Female</option>
+					</Input>
+			</FormGroup>
+			<FormGroup>
+				<Label for="motivation">Motivation:</Label>
+					<Input value={this.state.motivation}
+						onChange={e => this.change(e)}
+						type="textarea"
+						name="motivation"
+						id="motivation"
+						placeholder="Why are you playing ELLE?"
+					/>
+			</FormGroup>
+			<FormGroup>
+				<Label for="password">Password:</Label>
+					<Input value={this.state.password}
+						onChange={e => this.change(e)}
+						type="text"
+						id="password"
+						name="password"
+						placeholder="*********"
+					/>
+			</FormGroup>
+				<Button color="primary" type="submit" className="btn-block">Signup</Button>
+			</Form>
+			<br></br>
+			<p>Already have an account? <Link to ='/Login' style={{color: '#5FAEB5'}}>Log in.</Link></p>
+			</div>
 			</div>
 			
 			{/*

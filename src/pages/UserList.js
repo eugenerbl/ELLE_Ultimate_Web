@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import User from '../components/UserList/User';
+import { Link } from 'react-router-dom';
 import { Container, Table } from 'reactstrap';
 import axios from 'axios';
+
+import User from '../components/UserList/User';
 
 class UserList extends Component {
 
@@ -27,7 +29,7 @@ class UserList extends Component {
       var headers = {
           'Authorization': 'Bearer ' + localStorage.getItem('jwt')
       }
-          axios.post('http://10.171.204.206/admin', data, {headers:headers})
+          axios.post('http://45.55.61.182/admin', data, {headers:headers})
           .then(res => {
             console.log(res.data);
           }).catch(function (error) {
@@ -36,7 +38,7 @@ class UserList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://10.171.204.206/users', {
+        axios.get('http://45.55.61.182/users', {
           headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') }
         }).then(res => {
             console.log(res.data);
@@ -51,25 +53,58 @@ class UserList extends Component {
     render() {
         return (
           <Container className="user-list">
-            <Table hover>
-              <thead>
-                <tr>
-                  <th>id</th>
-                  <th>Username</th>
-                  <th>Permission</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.users.map((users) => {
-                  return (
-                    <User
-                      key={users.id}
-                      users={users}/>
-                  )
-                })}
-              </tbody>
-            </Table>
-          </Container>
+		  
+		  <header id="header">
+			<div className="container">
+				<div id="logo" className="pull-left">
+					<Link to='/'><img src={require('../Images/ELLE/ELLE-Background-Full.png')} alt="ELLE Ultimate"
+					title="Home" className="mainLogoStyle"/></Link>
+				</div>
+
+				<nav id="nav-menu-container">
+					<ul className="nav-menu">
+						<li><Link to='/downloads'>Download</Link></li>
+						<li><Link to='/profile'>My Profile</Link></li>
+						<li><Link to='/signup'>Sign Up</Link></li>
+						<li><Link to='/login'>Login</Link></li>
+					</ul>
+				</nav>
+			</div>
+			</header>
+			<br></br>
+		
+			<div className="btn-group" style={{width: '100%'}}>
+				<button><Link to="/profile" className="customLink">Profile</Link></button>
+				<button><Link to="/decks" className="customLink">Decks</Link></button>
+				<button><Link to="/sessions" className="customLink">Sessions</Link></button>
+				<button className="active"><Link to="/userlist" className="customLink">User List</Link></button>
+				<button><Link to="/logout" className="customLink">Sign Out</Link></button>
+			</div>
+			<br></br><br></br>
+		
+			<div>
+			<h3>List of Users</h3>
+			<Table hover>
+			  <thead>
+				<tr>
+				  <th>id</th>
+				  <th>Username</th>
+				  <th>Permission</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				{this.state.users.map((users) => {
+				  return (
+					<User
+					  key={users.id}
+					  users={users}/>
+				  )
+				})}
+			  </tbody>
+			</Table>
+			</div>
+		
+		</Container>
         )
     }
 }
