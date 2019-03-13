@@ -1191,3 +1191,43 @@ position: relative;
 	.tg col { width: auto !important; }
 	.tg-wrap { overflow-x: auto;-webkit-overflow-scrolling: touch; }
 }
+
+.mainLogoStyle {
+	width: 150px;
+	height: 42px;
+	border: 0;
+}
+
+/*--------------------------------------------------------------
+# Above Bar
+--------------------------------------------------------------*/
+
+.btn-group button {
+  background-color: #5FAEB5;
+  border: 1px solid #000000;
+  color: white; 
+  padding: 5px 24px;
+  cursor: pointer;
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Prevent double borders */
+.btn-group button:not(:last-child) { border-right: none; }
+
+.btn-group button:first-child { border-radius: 8px 0 0 8px; }
+.btn-group button:last-child {
+	border-radius: 0 8px 8px 0;
+	background-color: #3F6184;
+}
+.btn-group button:hover { background-color: #154360; }
+
+.btn-group .customLink { color: white; text-decoration: none; }
+.btn-group .active { background-color: #0000FF; }
