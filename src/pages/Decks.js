@@ -36,13 +36,9 @@ export default class Decks extends Component {
 
       deckName: "",
       ttype: "",
-
       decks: [],
-
       cards: [],
-
       audio: [],
-
       image: []
     };
   }
@@ -140,7 +136,7 @@ export default class Decks extends Component {
 		</div>
 		<br></br><br></br>
 	  
-        <Row><h3>Your Elle VR Decks:</h3></Row>
+        <h3>Your Elle VR Decks:</h3>
         <Row className="Seperated Col">
         <Col className="Left Column" xs="3">
           <Row>
@@ -151,9 +147,9 @@ export default class Decks extends Component {
                       decksPathname={matchPath}
                     />
                     <br/>
-                    <Form onSubmit={e => this.submitDeck(e)}>
+                    <Form className="thinForm" onSubmit={e => this.submitDeck(e)}>
                       <FormGroup>
-                        <Label for="deckName">Deck Name</Label>
+                        <Label for="deckName">Deck Name:</Label>
                         <Input type="text"
                         onChange={e => this.change(e)}
                         value={this.state.deckName}
@@ -163,7 +159,7 @@ export default class Decks extends Component {
                       </FormGroup>
 					  
                       <FormGroup>
-                        <Label for="ttype">Language</Label>
+                        <Label for="ttype">Language:</Label>
                         <Input type="text"
                         onChange={e => this.change(e)}
                         value={this.state.ttype}
@@ -171,20 +167,23 @@ export default class Decks extends Component {
                         id="ttype"
                         placeholder="Language" />
                       </FormGroup>
-					  
                       <Button color="primary" block type="submit">Add Deck</Button>
                     </Form>
                     <br />
 					
-                    <Form onSubmit={e => this.deleteDeck(e)}>
-                      <Label for="cardID">Deck ID:</Label>
+                    <Form className="thinForm" onSubmit={e => this.deleteDeck(e)}>
+                      <FormGroup>
+					  <Label for="cardID">Deck ID:</Label>
                       <Input type="text" name="cardID"
                       onChange={e => this.change(e)}
                       value={this.state.deckID}
                       id="username" placeholder="Username" />
+					  </FormGroup>
                       <Button color="danger" block type="submit">Delete Deck</Button>
                     </Form>
+					<br></br>
                 </Card>
+				<br></br>
             </Col>
           </Row>
         </Col>
@@ -192,37 +191,39 @@ export default class Decks extends Component {
           <Row>
             <Col>
               <Container>
-                    <Card>
-                      <Route exact path={matchPath} render={() => (
-                        <div>
-                          <h3>Please select a Deck from the left menu.</h3>
-                        </div>
-                      )} />
-                      <Route
-                        path={`${matchPath}/:id`}
-                        render={({ match }) => {
-                          const deck = this.state.decks.find(
-                            (a) => a.id === match.params.id
-                          );
-                          return (
-                            <Container>
-                              <Deck
-                                id={match.params.id}
-                                deck={deck}
-                                deckPathname={matchPath}
-                              />
-                              <Button color="info" onClick={this.toggleNewCard} block>New Card</Button>
-                                <Collapse isOpen={this.state.collapseNewCard}>
-                                  <AddCard
-                                  id={match.params.id}
-                                  />
-                                </Collapse>
-                            </Container>
-                          );
-                        }}
-                      />
-
-                    </Card>
+				<Card>
+					<Route exact path={matchPath} render={() => (
+						<div>
+						  <h3 style={{textAlign: 'center'}}>Please select a deck from the left.</h3>
+						</div>
+					)} />
+					<Route
+						path={`${matchPath}/:id`}
+						render={({ match }) => {
+						  const deck = this.state.decks.find(
+							(a) => a.id === match.params.id
+						  );
+						  return (
+							<Container>
+							  <Deck
+								id={match.params.id}
+								deck={deck}
+								deckPathname={matchPath}
+							  />
+							  <Button color="info" onClick={this.toggleNewCard}	block>Add Card</Button>
+							  <br></br>
+								<Collapse isOpen={this.state.collapseNewCard}>
+								  <AddCard
+								  id={match.params.id}
+								  />
+								</Collapse>
+								<br></br>
+							</Container>
+						  );
+						}}
+					/>
+				</Card>
+				<br></br><br></br>
               </Container>
             </Col>
           </Row>

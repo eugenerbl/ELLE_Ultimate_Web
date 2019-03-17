@@ -34,7 +34,7 @@ class Deck extends React.Component {
       var headers = {
           'Authorization': 'Bearer ' + localStorage.getItem('jwt')
       }
-          axios.delete('http://10.171.204.206/card', data, {headers:headers})
+          axios.delete('http://45.55.61.182/card', data, {headers:headers})
           .then(res => {
             console.log(res.data);
           }).catch(function (error) {
@@ -43,7 +43,7 @@ class Deck extends React.Component {
   }
 
   componentDidMount() {
-      axios.get('http://10.171.204.206/deck/' +this.state.id, {
+      axios.get('http://45.55.61.182/deck/' +this.state.id, {
         headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') },
       }).then(res => {
           console.log(res.data);
@@ -72,19 +72,19 @@ class Deck extends React.Component {
             />
           <Row>
             <Col>
-              <Form onSubmit={e => this.submit(e)}>
-                <Label for="cardID">Card ID:</Label>
+              <Form inline onSubmit={e => this.submit(e)}>
+                <Label for="cardID" className="mr-sm-2">Card ID:</Label>
                 <Input type="text" name="cardID"
                 onChange={e => this.change(e)}
                 value={this.state.cardID}
-                id="username" placeholder="Username" />
+                id="username" placeholder="Username"
+				style={{width: '75%', marginRight: '8px'}}/>
                 <Button color="danger" type="submit">Delete Card</Button>
               </Form>
             </Col>
           </Row>
           <Row>
             <br/>
-
           </Row>
         </Container>
       );

@@ -96,9 +96,9 @@ submitPass(e) {
 		</div>
 		<br></br><br></br>
 	  
-      <h3>Profile</h3>
+      <h3>Your Profile</h3>
         <Form className="ProfileForm">
-          <FormGroup row>
+          <FormGroup>
             <Label for="username">Username</Label>
             <Input type="text"
             name="username"
@@ -106,7 +106,7 @@ submitPass(e) {
             disabled
             value={this.state.username} />
           </FormGroup>
-          <FormGroup row>
+          <FormGroup>
             <Label for="age">Age</Label>
             <Input type="number"
             name="age"
@@ -114,7 +114,7 @@ submitPass(e) {
             disabled
             value={this.state.age} />
           </FormGroup>
-          <FormGroup row>
+          <FormGroup>
             <Label for="sex">Sex</Label>
             <Input type="text"
             name="sex"
@@ -132,7 +132,7 @@ submitPass(e) {
           </FormGroup>
         </Form>
         <Form className="PasswordReset" onSubmit={e => this.submitPass(e)}>
-        <h3>Reset Your Password</h3>
+        <h3>Reset Password</h3>
           <FormGroup>
             <Label for="newpass">Enter your new password below.</Label>
             <Input type="text"
@@ -142,7 +142,9 @@ submitPass(e) {
             value={this.state.newpass} />
           </FormGroup>
           <Button type="submit">Submit New Password</Button>
+		  
         </Form>
+		<br/>
       </Container>
     );
   }

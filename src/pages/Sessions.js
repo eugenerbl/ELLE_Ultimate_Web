@@ -81,8 +81,8 @@ export default class Sessions extends Component {
 		  <button><Link to="/userlist" className="customLink">User List</Link></button>
 		  <button><Link to="/logout" className="customLink">Sign Out</Link></button>
 		</div>
-		<br></br>
-
+		<br/><br/>
+		{/*
 	  <div>
         <Navbar light expand="md">
           <NavbarBrand to="/decks" tag={RNavLink}>Elle VR</NavbarBrand>
@@ -113,8 +113,8 @@ export default class Sessions extends Component {
           </Collapse>
         </Navbar>
       </div>
-	  
-        <Row><h3>Your Elle VR Sessions:</h3></Row>
+		*/}
+        <h3>Your Elle VR Sessions:</h3>
         <Row className="Seperated Col">
         <Col className="Left Column" xs="3">
           <Row>
@@ -135,7 +135,7 @@ export default class Sessions extends Component {
                 <Card>
                   <Route exact path={matchPath} render={() => (
                     <div>
-                      <h3>Please select a Deck on the left</h3>
+                      <h3 style={{textAlign: 'center'}}>Please select a session from the left.</h3>
                     </div>
                   )} />
                   <Route
