@@ -83,6 +83,7 @@ export default class Sessions extends Component {
 		</div>
 		<br/><br/>
 		{/*
+
 	  <div>
         <Navbar light expand="md">
           <NavbarBrand to="/decks" tag={RNavLink}>Elle VR</NavbarBrand>
@@ -113,8 +114,12 @@ export default class Sessions extends Component {
           </Collapse>
         </Navbar>
       </div>
+
 		*/}
         <h3>Your Elle VR Sessions:</h3>
+	  
+        <Row><h3>Your Elle VR Sessions:</h3></Row>
+ master
         <Row className="Seperated Col">
         <Col className="Left Column" xs="3">
           <Row>
