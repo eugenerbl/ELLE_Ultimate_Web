@@ -7,12 +7,6 @@ import '../lib/font-awesome/css/font-awesome.min.css';
 import '../lib/owlcarousel/assets/owl.carousel.min.css';
 import '../lib/ionicons/css/ionicons.min.css';
 
-const mainLogoStyle = {
-	width: '150px',
-	height: '42px',
-	border: '0'
-};
-
 const Home = (props) => {
   return (
 	<div>
@@ -32,7 +26,7 @@ const Home = (props) => {
 			<div className="container">
 				<div id="logo" className="pull-left">
 					<Link to='/'><img src={require('../Images/ELLE/ELLE-Background-Full.png')} alt="ELLE Ultimate"
-					title="Home" style={mainLogoStyle}/></Link>
+					title="Home" className="mainLogoStyle"/></Link>
 				</div>
 
 				<nav id="nav-menu-container">

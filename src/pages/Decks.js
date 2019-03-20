@@ -13,11 +13,6 @@ import '../lib/font-awesome/css/font-awesome.min.css';
 import '../lib/owlcarousel/assets/owl.carousel.min.css';
 import '../lib/ionicons/css/ionicons.min.css';
 
-const mainLogoStyle = {
-	width: '150px',
-	height: '42px',
-	border: '0'
-};
 
 export default class Decks extends Component {
   constructor() {
@@ -41,13 +36,9 @@ export default class Decks extends Component {
 
       deckName: "",
       ttype: "",
-
       decks: [],
-
       cards: [],
-
       audio: [],
-
       image: []
     };
   }
@@ -121,7 +112,7 @@ export default class Decks extends Component {
 			<div className="container">
 				<div id="logo" className="pull-left">
 					<Link to='/'><img src={require('../Images/ELLE/ELLE-Background-Full.png')} alt="ELLE Ultimate"
-					title="Home" style={mainLogoStyle}/></Link>
+					title="Home" className="mainLogoStyle"/></Link>
 				</div>
 
 				<nav id="nav-menu-container">
@@ -130,13 +121,22 @@ export default class Decks extends Component {
 						<li><Link to='/profile'>My Profile</Link></li>
 						<li><Link to='/signup'>Sign Up</Link></li>
 						<li><Link to='/login'>Login</Link></li>
-						<li><a href="www.google.com" className="github"><i className="fa fa-github fa-lg"></i></a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
+		<br></br>
 		
-        <Row><h3>Your Elle VR Decks:</h3></Row>
+		<div className="btn-group" style={{width: '100%'}}>
+			<button><Link to="/profile" className="customLink">Profile</Link></button>
+			<button className="active"><Link to="/decks" className="customLink">Decks</Link></button>
+			<button><Link to="/sessions" className="customLink">Sessions</Link></button>
+			<button><Link to="/userlist" className="customLink">User List</Link></button>
+			<button><Link to="/logout" className="customLink">Sign Out</Link></button>
+		</div>
+		<br></br><br></br>
+	  
+        <h3>Your Elle VR Decks:</h3>
         <Row className="Seperated Col">
         <Col className="Left Column" xs="3">
           <Row>
@@ -147,9 +147,9 @@ export default class Decks extends Component {
                       decksPathname={matchPath}
                     />
                     <br/>
-                    <Form onSubmit={e => this.submitDeck(e)}>
+                    <Form className="thinForm" onSubmit={e => this.submitDeck(e)}>
                       <FormGroup>
-                        <Label for="deckName">Deck Name</Label>
+                        <Label for="deckName">Deck Name:</Label>
                         <Input type="text"
                         onChange={e => this.change(e)}
                         value={this.state.deckName}
@@ -159,7 +159,7 @@ export default class Decks extends Component {
                       </FormGroup>
 					  
                       <FormGroup>
-                        <Label for="ttype">Language</Label>
+                        <Label for="ttype">Language:</Label>
                         <Input type="text"
                         onChange={e => this.change(e)}
                         value={this.state.ttype}
@@ -167,20 +167,23 @@ export default class Decks extends Component {
                         id="ttype"
                         placeholder="Language" />
                       </FormGroup>
-					  
                       <Button color="primary" block type="submit">Add Deck</Button>
                     </Form>
                     <br />
 					
-                    <Form onSubmit={e => this.deleteDeck(e)}>
-                      <Label for="cardID">Deck ID:</Label>
+                    <Form className="thinForm" onSubmit={e => this.deleteDeck(e)}>
+                      <FormGroup>
+					  <Label for="cardID">Deck ID:</Label>
                       <Input type="text" name="cardID"
                       onChange={e => this.change(e)}
                       value={this.state.deckID}
                       id="username" placeholder="Username" />
+					  </FormGroup>
                       <Button color="danger" block type="submit">Delete Deck</Button>
                     </Form>
+					<br></br>
                 </Card>
+				<br></br>
             </Col>
           </Row>
         </Col>
@@ -188,37 +191,39 @@ export default class Decks extends Component {
           <Row>
             <Col>
               <Container>
-                    <Card>
-                      <Route exact path={matchPath} render={() => (
-                        <div>
-                          <h3>Please select a Deck from the left menu.</h3>
-                        </div>
-                      )} />
-                      <Route
-                        path={`${matchPath}/:id`}
-                        render={({ match }) => {
-                          const deck = this.state.decks.find(
-                            (a) => a.id === match.params.id
-                          );
-                          return (
-                            <Container>
-                              <Deck
-                                id={match.params.id}
-                                deck={deck}
-                                deckPathname={matchPath}
-                              />
-                              <Button color="info" onClick={this.toggleNewCard} block>New Card</Button>
-                                <Collapse isOpen={this.state.collapseNewCard}>
-                                  <AddCard
-                                  id={match.params.id}
-                                  />
-                                </Collapse>
-                            </Container>
-                          );
-                        }}
-                      />
-
-                    </Card>
+				<Card>
+					<Route exact path={matchPath} render={() => (
+						<div>
+						  <h3 style={{textAlign: 'center'}}>Please select a deck from the left.</h3>
+						</div>
+					)} />
+					<Route
+						path={`${matchPath}/:id`}
+						render={({ match }) => {
+						  const deck = this.state.decks.find(
+							(a) => a.id === match.params.id
+						  );
+						  return (
+							<Container>
+							  <Deck
+								id={match.params.id}
+								deck={deck}
+								deckPathname={matchPath}
+							  />
+							  <Button color="info" onClick={this.toggleNewCard}	block>Add Card</Button>
+							  <br></br>
+								<Collapse isOpen={this.state.collapseNewCard}>
+								  <AddCard
+								  id={match.params.id}
+								  />
+								</Collapse>
+								<br></br>
+							</Container>
+						  );
+						}}
+					/>
+				</Card>
+				<br></br><br></br>
               </Container>
             </Col>
           </Row>

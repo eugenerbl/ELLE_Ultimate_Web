@@ -706,7 +706,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 */
 /* Our Portfolio Section
---------------------------------*/
+--------------------------------
 #portfolio {
   background: #fff;
   padding: 30px 0;
@@ -764,9 +764,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-
+*/
 /* Testimonials Section
---------------------------------*/
+--------------------------------
 #testimonials {
   padding: 30px 0;
 }
@@ -843,7 +843,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #testimonials .owl-dot.active {
   background-color: #50d8af;
 }
-
+*/
 /* Call To Action Section
 --------------------------------*/
 #call-to-action {
@@ -944,6 +944,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 /* Contact Section
 --------------------------------*/
+/*
 #contact {
   padding: 30px 0;
 }
@@ -1061,7 +1062,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #contact .form button[type="submit"]:hover {
   background: #2dc899;
 }
-
+*/
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -1110,7 +1111,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Side Bar
 --------------------------------------------------------------*/
-
+/*
 .list-group .bright { background-color: #99CCFF; }
 
 .list-group-item:hover, .list-group-item:focus {
@@ -1191,3 +1192,49 @@ position: relative;
 	.tg col { width: auto !important; }
 	.tg-wrap { overflow-x: auto;-webkit-overflow-scrolling: touch; }
 }
+*/
+.mainLogoStyle {
+	width: 150px;
+	height: 42px;
+	border: 0;
+}
+
+/*--------------------------------------------------------------
+# Above Bar
+--------------------------------------------------------------*/
+
+.btn-group button {
+  background-color: #5FAEB5;
+  border: 1px solid #000000;
+  color: white; 
+  padding: 5px 24px;
+  cursor: pointer;
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Prevent double borders */
+.btn-group button:not(:last-child) { border-right: none; }
+
+.btn-group button:first-child { border-radius: 8px 0 0 8px; }
+.btn-group button:last-child {
+	border-radius: 0 8px 8px 0;
+	background-color: #3F6184;
+}
+.btn-group button:hover { background-color: #154360; }
+
+.btn-group .customLink { color: white; text-decoration: none; }
+.btn-group .active { background-color: #0000FF; }
+
+/*--------------------------------------------------------------
+# Card
+--------------------------------------------------------------*/
+
+.thinForm {	padding: 0px 15px; }

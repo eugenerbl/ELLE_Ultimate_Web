@@ -72,19 +72,19 @@ class Deck extends React.Component {
             />
           <Row>
             <Col>
-              <Form onSubmit={e => this.submit(e)}>
-                <Label for="cardID">Card ID:</Label>
+              <Form inline onSubmit={e => this.submit(e)}>
+                <Label for="cardID" className="mr-sm-2">Card ID:</Label>
                 <Input type="text" name="cardID"
                 onChange={e => this.change(e)}
                 value={this.state.cardID}
-                id="username" placeholder="Username" />
+                id="username" placeholder="Username"
+				style={{width: '75%', marginRight: '8px'}}/>
                 <Button color="danger" type="submit">Delete Card</Button>
               </Form>
             </Col>
           </Row>
           <Row>
             <br/>
-
           </Row>
         </Container>
       );

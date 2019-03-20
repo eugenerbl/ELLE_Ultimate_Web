@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Container, Row, Col, } from 'reactstrap';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
 import { NavLink as RNavLink} from 'react-router-dom';
@@ -19,6 +19,8 @@ import {
 
 import SessionNav from '../components/Sessions/SessionNav';
 import Rounds from '../components/Sessions/Rounds';
+import '../lib/bootstrap/css/bootstrap.min.css';
+import '../lib/ionicons/css/ionicons.min.css';
 
 export default class Sessions extends Component {
 	
@@ -27,9 +29,7 @@ export default class Sessions extends Component {
 
     this.state = {
       userID: '',
-
       sessions: [],
-
       LoggedAnswers: []
     }
   }
@@ -54,6 +54,36 @@ export default class Sessions extends Component {
 
     return (
       <Container>
+	  
+	  <header id="header">
+			<div className="container">
+				<div id="logo" className="pull-left">
+					<Link to='/'><img src={require('../Images/ELLE/ELLE-Background-Full.png')} alt="ELLE Ultimate"
+					title="Home" className="mainLogoStyle"/></Link>
+				</div>
+
+				<nav id="nav-menu-container">
+					<ul className="nav-menu">
+						<li><Link to='/downloads'>Download</Link></li>
+						<li><Link to='/profile'>My Profile</Link></li>
+						<li><Link to='/signup'>Sign Up</Link></li>
+						<li><Link to='/login'>Login</Link></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<br></br>
+	  
+		<div className="btn-group" style={{width: '100%'}}>
+		  <button><Link to="/profile" className="customLink">Profile</Link></button>
+		  <button><Link to="/decks" className="customLink">Decks</Link></button>
+		  <button className="active"><Link to="/sessions" className="customLink">Sessions</Link></button>
+		  <button><Link to="/userlist" className="customLink">User List</Link></button>
+		  <button><Link to="/logout" className="customLink">Sign Out</Link></button>
+		</div>
+		<br/><br/>
+		{/*
+
 	  <div>
         <Navbar light expand="md">
           <NavbarBrand to="/decks" tag={RNavLink}>Elle VR</NavbarBrand>
@@ -84,8 +114,12 @@ export default class Sessions extends Component {
           </Collapse>
         </Navbar>
       </div>
+
+		*/}
+        <h3>Your Elle VR Sessions:</h3>
 	  
         <Row><h3>Your Elle VR Sessions:</h3></Row>
+ master
         <Row className="Seperated Col">
         <Col className="Left Column" xs="3">
           <Row>
@@ -106,7 +140,7 @@ export default class Sessions extends Component {
                 <Card>
                   <Route exact path={matchPath} render={() => (
                     <div>
-                      <h3>Please select a Deck on the left</h3>
+                      <h3 style={{textAlign: 'center'}}>Please select a session from the left.</h3>
                     </div>
                   )} />
                   <Route
