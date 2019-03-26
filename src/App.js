@@ -14,6 +14,10 @@ import UserList from './pages/UserList';
 import AuthUser from './components/Auth/AuthUser';
 import AuthAdmin from './components/Auth/AuthAdmin';
 
+let flaskIP = 'https://10.171.204.206';
+flaskIP = 'https://endlesslearner.com';
+//flaskIP = 'http://localhost:5000';
+
 class App extends Component {
   constructor() {
     super();
@@ -28,19 +32,19 @@ class App extends Component {
         <Router>
         <div>
           <Switch>
-			<Route exact path="/" component={Home} />
-			<Route path="/downloads" component={Downloads} />
-			<Route path="/logout" component={Logout} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
+            <Route exact path="/home" component={Home} />
+            <Route path="/downloads" component={Downloads} />
+            <Route path="/logout" render={(props)=><Logout {...props} serviceIP={flaskIP}/>}/>
+            <Route path="/login" render={(props)=><Login {...props} serviceIP={flaskIP}/>}/>
+            <Route path="/signup" render={(props)=><Signup {...props} serviceIP={flaskIP}/>}/>
             <AuthUser>
               <Route exact path="/" component={Template} />
-              <Route path="/groups" component={Groups} />
-              <Route path="/decks" component={Decks} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/sessions" component={Sessions} />
+              <Route path="/groups" render={(props)=><Groups {...props} serviceIP={flaskIP}/>}/>
+              <Route path="/decks" render={(props)=><Decks {...props} serviceIP={flaskIP}/>}/>
+              <Route path="/profile" render={(props)=><Profile {...props} serviceIP={flaskIP}/>}/>
+              <Route path="/sessions" render={(props)=><Sessions {...props} serviceIP={flaskIP}/>}/>
               <AuthAdmin>
-                <Route path="/userlist" component={UserList} />
+                <Route path="/userlist" render={(props)=><UserList {...props} serviceIP={flaskIP}/>}/>
               </AuthAdmin>
             </AuthUser>
           </Switch>

@@ -15,7 +15,7 @@ class AuthUser extends Component {
   componentDidMount() {
     const jwt = localStorage.getItem('jwt');;
     if(!jwt) {
-      this.props.history.push('/login');
+      this.props.history.push('/home');
     }
   }
 

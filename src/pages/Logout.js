@@ -8,13 +8,14 @@ class Logout extends Component {
   constructor(props) {
     super(props);
 
-    localStorage.removeItem('access_token');
+    localStorage.removeItem('jwt');
+    localStorage.removeItem('per');
   }
 
   render() {
     return (
       <Redirect
-        to='/login'
+        to='/home'
       />
     );
   }

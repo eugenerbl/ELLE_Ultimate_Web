@@ -16,7 +16,7 @@ class AuthAdmin extends Component {
     const jwt = localStorage.getItem('jwt');;
     const per = localStorage.getItem('per');;
     if(!jwt) {
-      this.props.history.push('/login');
+      this.props.history.push('/home');
     }else if (per === 'at' || per === 'us') {
       this.props.history.push('/sessions');
     }

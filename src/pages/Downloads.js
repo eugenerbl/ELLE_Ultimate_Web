@@ -31,7 +31,7 @@ export default class Downloads extends Component {
 						<li><Link to='/profile'>My Profile</Link></li>
 						<li><Link to='/signup'>Sign Up</Link></li>
 						<li><Link to='/login'>Login</Link></li>
-						<li><a href="www.google.com" className="github"><i className="fa fa-github fa-lg"></i></a></li>
+						<li><a href="https://www.github.com/ItsNotRick/elle" className="github"><i className="fa fa-github fa-lg"></i></a></li>
 					</ul>
 				</nav>
 			</div>

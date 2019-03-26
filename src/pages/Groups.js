@@ -30,7 +30,7 @@ export default class Groups extends React.Component {
     };
   }
   componentDidMount() {
-      axios.get('http://10.171.204.206/groups', {
+      axios.get(this.props.serviceIP + '/groups', {
         headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') }
       }).then(res => {
           console.log(res.data);
@@ -43,7 +43,7 @@ export default class Groups extends React.Component {
 
   submitGroup(e) {
     e.preventDefault();
-    axios.post('http://10.171.204.206/group', {
+    axios.post(this.props.serviceIP + '/group', {
       headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') },
       groupName: this.state.groupName,
     }).then(res => {

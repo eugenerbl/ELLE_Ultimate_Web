@@ -14,8 +14,7 @@ const DeckNav = (props) => {
               key={deck.id}
               to={`${decksPathname}/${deck.id}`}
               className='item'
-              tag={RNavLink}
-            >
+              tag={RNavLink}>
               {deck.name}
             </NavLink>
         ))

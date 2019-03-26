@@ -61,16 +61,16 @@ class AddCard extends React.Component {
 	    var headers = {
 	        'Authorization': 'Bearer ' + localStorage.getItem('jwt')
 	    }
-	      axios.post('http://10.171.204.206/card/'+this.state.id, data, {headers:headers})
+	      axios.post(this.props.serviceIP + '/card/'+this.state.id, data, {headers:headers})
 	      .then(res => {
 	        console.log(res.data);
-						axios.post('http://10.171.204.206/card/image/'+res.data.cardID, formPicData, {headers:fileheader})
+						axios.post(this.props.serviceIP + '/card/image/'+res.data.cardID, formPicData, {headers:fileheader})
 						.then(res => {
 							console.log(res.data);
 						}).catch(function (error) {
 							console.log(error);
 						});
-						axios.post('http://10.171.204.206/card/sound/'+res.data.cardID, formAudioData, {headers:fileheader})
+						axios.post(this.props.serviceIP + '/card/sound/'+res.data.cardID, formAudioData, {headers:fileheader})
 						.then(res => {
 							console.log(res.data);
 						}).catch(function (error) {

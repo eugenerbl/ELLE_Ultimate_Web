@@ -27,8 +27,7 @@ export default class Login extends Component {
 
   submit(e) {
     e.preventDefault();
-	axios.post('http://45.55.61.182/login', {
-		
+    axios.post(this.props.serviceIP + '/login', {
       username: this.state.username,
       password: this.state.password
     }).then(res => {
@@ -43,28 +42,26 @@ export default class Login extends Component {
 
   render() {
     return (
-	
-	<Container>
-	  <header id="header">
-			<div className="container">
-				<div id="logo" className="pull-left">
-					<Link to='/'><img src={require('../Images/ELLE/ELLE-Background-Full.png')} alt="ELLE Ultimate"
-					title="Home" className="mainLogoStyle"/></Link>
-				</div>
-
-				<nav id="nav-menu-container">
-					<ul className="nav-menu">
-						<li><Link to='/downloads'>Download</Link></li>
-						<li><Link to='/profile'>My Profile</Link></li>
-						<li><Link to='/signup'>Sign Up</Link></li>
-						<li><Link to='/login'>Login</Link></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-		
-	  
-	  {/*
+    <Container>
+      <header id="header">
+        <div className="container">
+          <div id="logo" className="pull-left">
+            <Link to='/'>
+              <img src={require('../Images/ELLE/ELLE-Background-Full.png')} alt="ELLE Ultimate"
+                title="Home" className="mainLogoStyle"/>
+            </Link>
+          </div>
+          <nav id="nav-menu-container">
+            <ul className="nav-menu">
+              <li><Link to='/downloads'>Download</Link></li>
+              <li><Link to='/profile'>My Profile</Link></li>
+              <li><Link to='/signup'>Sign Up</Link></li>
+              <li><Link to='/login'>Login</Link></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      {/*
         <h3>Login</h3>
         <Form onSubmit={e => this.submit(e)}>
           <FormGroup>
@@ -85,57 +82,51 @@ export default class Login extends Component {
           {' '}
           <Button color="primary" type="submit">Submit</Button>
         </Form>
-	  <Link to ='/Signup' >Signup</Link>*/}
-		
-		<div className="row main" >
-		<div className="main-login main-center">
-			<h4 style={{textAlign: 'center'}}>Welcome back to ELLE.</h4>
-			<Form onSubmit={e => this.submit(e)}>
-			
-			<FormGroup>
-				<Label for="userName">Username:</Label>
-				<Input type="username" name="username"
-				onChange={e => this.change(e)}
-				value={this.state.username}
-				id="username" placeholder="Username" />
-			</FormGroup>
-			{' '}
-			
-			<FormGroup>
-				<Label for="password">Password:</Label>
-				<Input type="password" name="password"
-				onChange={e => this.change(e)}
-				value={this.state.password}
-				id="password" placeholder="Password" />
-			</FormGroup>
-			{' '}
-		  
-			<Button color="primary" type="submit" className="btn-block">Submit</Button>
-			</Form>
-			<br></br>
-			{/*
-			<div className="form-group">
-			  <div className="cols-sm-10">
-				<div className="input-group">
-				  <input type="text" className="form-control" name="username" id="username" placeholder="Username" />
-				</div>
-			  </div>
-			</div>
-			<div className="form-group">
-			  <div className="cols-sm-10">
-				<div className="input-group">
-				  <input type="password" className="form-control" name="password" id="password" placeholder="Password" />
-				</div>
-			  </div>
-			</div>
-			<div className="form-group">
-			  <a href="#" type="button" id="btnLogin" className="btn btn-primary btn-lg btn-block login-button">Log In</a>
-			</div> */}
-		  
-		  <Link to ='/Signup' style={{color: 'white'}}>Create an Account</Link>
-		</div>
-	  </div>
-		
+      <Link to ='/Signup' >Signup</Link>*/}
+      <div className="row main" >
+        <div className="main-login main-center">
+          <h4 style={{textAlign: 'center'}}>Welcome back to ELLE.</h4>
+          <Form onSubmit={e => this.submit(e)}>
+            <FormGroup>
+              <Label for="userName">Username:</Label>
+              <Input type="username" name="username"
+                onChange={e => this.change(e)}
+                value={this.state.username}
+                id="username" placeholder="Username" />
+            </FormGroup>
+            {' '}
+            <FormGroup>
+              <Label for="password">Password:</Label>
+              <Input type="password" name="password"
+                onChange={e => this.change(e)}
+                value={this.state.password}
+                id="password" placeholder="Password" />
+            </FormGroup>
+            {' '}
+            <Button color="primary" type="submit" className="btn-block">Submit</Button>
+          </Form>
+          <br></br>
+          {/*
+            <div className="form-group">
+              <div className="cols-sm-10">
+                <div className="input-group">
+                  <input type="text" className="form-control" name="username" id="username" placeholder="Username" />
+                </div>
+              </div>
+            </div>
+            <div className="form-group">
+              <div className="cols-sm-10">
+                <div className="input-group">
+                  <input type="password" className="form-control" name="password" id="password" placeholder="Password" />
+                </div>
+              </div>
+            </div>
+            <div className="form-group">
+              <a href="#" type="button" id="btnLogin" className="btn btn-primary btn-lg btn-block login-button">Log In</a>
+            </div> */}
+          <Link to ='/signup' style={{color: 'white'}}>Create an Account</Link>
+        </div>
+      </div>
     </Container>
     );
   }

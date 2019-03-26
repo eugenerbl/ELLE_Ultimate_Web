@@ -34,7 +34,7 @@ class Deck extends React.Component {
       var headers = {
           'Authorization': 'Bearer ' + localStorage.getItem('jwt')
       }
-          axios.delete('http://45.55.61.182/card', data, {headers:headers})
+          axios.delete(this.props.serviceIP + '/card', data, {headers:headers})
           .then(res => {
             console.log(res.data);
           }).catch(function (error) {
@@ -43,7 +43,7 @@ class Deck extends React.Component {
   }
 
   componentDidMount() {
-      axios.get('http://45.55.61.182/deck/' +this.state.id, {
+      axios.get(this.props.serviceIP + '/deck/' +this.state.id, {
         headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') },
       }).then(res => {
           console.log(res.data);
@@ -78,7 +78,7 @@ class Deck extends React.Component {
                 onChange={e => this.change(e)}
                 value={this.state.cardID}
                 id="username" placeholder="Username"
-				style={{width: '75%', marginRight: '8px'}}/>
+                style={{width: '75%', marginRight: '8px'}}/>
                 <Button color="danger" type="submit">Delete Card</Button>
               </Form>
             </Col>

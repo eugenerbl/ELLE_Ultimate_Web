@@ -23,10 +23,8 @@ import '../lib/bootstrap/css/bootstrap.min.css';
 import '../lib/ionicons/css/ionicons.min.css';
 
 export default class Sessions extends Component {
-	
-	constructor(props) {
+  constructor(props) {
     super(props);
-
     this.state = {
       userID: '',
       sessions: [],
@@ -35,56 +33,60 @@ export default class Sessions extends Component {
   }
 
   componentDidMount() {
-	  
-      axios.get('http://10.32.132.111/sessions', {
-        headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') }
-      }).then(res => {
-		  console.log(res.data);
-          this.setState({
-            sessions : res.data });
-		}).catch(function (error) {
-          console.log(error);
-        });
-	  
-    }
+    axios.get(this.props.serviceIP + '/session', {
+      headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') }
+    }).then(res => {
+    console.log(res.data);
+      this.setState({
+      sessions : res.data });
+    }).catch(function (error) {
+      console.log(error);
+    });
+  }
 
   render() {
-
     const matchPath = this.props.match.path;
-
     return (
-      <Container>
-	  
-	  <header id="header">
-			<div className="container">
-				<div id="logo" className="pull-left">
-					<Link to='/'><img src={require('../Images/ELLE/ELLE-Background-Full.png')} alt="ELLE Ultimate"
-					title="Home" className="mainLogoStyle"/></Link>
-				</div>
-
-				<nav id="nav-menu-container">
-					<ul className="nav-menu">
-						<li><Link to='/downloads'>Download</Link></li>
-						<li><Link to='/profile'>My Profile</Link></li>
-						<li><Link to='/signup'>Sign Up</Link></li>
-						<li><Link to='/login'>Login</Link></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-		<br></br>
-	  
-		<div className="btn-group" style={{width: '100%'}}>
-		  <button><Link to="/profile" className="customLink">Profile</Link></button>
-		  <button><Link to="/decks" className="customLink">Decks</Link></button>
-		  <button className="active"><Link to="/sessions" className="customLink">Sessions</Link></button>
-		  <button><Link to="/userlist" className="customLink">User List</Link></button>
-		  <button><Link to="/logout" className="customLink">Sign Out</Link></button>
-		</div>
-		<br/><br/>
-		{/*
-
-	  <div>
+    <Container>
+    <header id="header">
+      <div className="container">
+        <div id="logo" className="pull-left">
+          <Link to='/'>
+            <img src={require('../Images/ELLE/ELLE-Background-Full.png')} 
+              alt="ELLE Ultimate" title="Home" className="mainLogoStyle"/>
+          </Link>
+        </div>
+        <nav id="nav-menu-container">
+          <ul className="nav-menu">
+            <li><Link to='/downloads'>Download</Link></li>
+            <li><Link to='/profile'>My Profile</Link></li>
+            <li><Link to='/signup'>Sign Up</Link></li>
+            <li><Link to='/login'>Login</Link></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <br></br>
+    <div className="btn-group" style={{width: '100%'}}>
+      <button>
+        <Link to="/profile" className="customLink">Profile</Link>
+      </button>
+      <button>
+        <Link to="/decks" className="customLink">Decks</Link>
+      </button>
+      <button className="active">
+        <Link to="/sessions" className="customLink">Sessions</Link>
+      </button>
+      <button>
+        <Link to="/userlist" className="customLink">User List</Link>
+      </button>
+      <button>
+        <Link to="/logout" className="customLink">Sign Out</Link>
+      </button>
+    </div>
+    <br/><br/>
+    {/*
+    <div>
         <Navbar light expand="md">
           <NavbarBrand to="/decks" tag={RNavLink}>Elle VR</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
@@ -115,55 +117,45 @@ export default class Sessions extends Component {
         </Navbar>
       </div>
 
-		*/}
-        <h3>Your Elle VR Sessions:</h3>
-	  
-        <Row><h3>Your Elle VR Sessions:</h3></Row>
+    */}
+    <h3>Your Elle VR Sessions:</h3>
+    <Row><h3>Your Elle VR Sessions:</h3></Row>
  master
-        <Row className="Seperated Col">
-        <Col className="Left Column" xs="3">
-          <Row>
-            <Col>
-                <Card>
-                  <SessionNav
-                    sessions={this.state.sessions}
-                    sessionsPathname={matchPath}
-                  />
-                </Card>
-            </Col>
-          </Row>
-        </Col>
-        <Col className="Right Column">
-          <Row>
-            <Col>
-              <Container>
-                <Card>
-                  <Route exact path={matchPath} render={() => (
-                    <div>
-                      <h3 style={{textAlign: 'center'}}>Please select a session from the left.</h3>
-                    </div>
-                  )} />
-                  <Route
-                    path={`${matchPath}/:sessionID`}
-                    render={({ match }) => {
-                      const session = this.state.sessions.find(
-                        (a) => a.id === match.params.sessionID
-                      );
-                      return (
-                        <Rounds
-                          session={session}
-                        />
-                      );
-                    }}
-                  />
-
-                </Card>
-              </Container>
-            </Col>
-          </Row>
-        </Col>
+    <Row className="Seperated Col">
+      <Col className="Left Column" xs="3">
+        <Row>
+          <Col>
+            <Card>
+              <SessionNav sessions={this.state.sessions} sessionsPathname={matchPath}/>
+            </Card>
+          </Col>
         </Row>
-      </Container>
+      </Col>
+      <Col className="Right Column">
+        <Row>
+          <Col>
+            <Container>
+              <Card>
+                <Route exact path={matchPath} render={() => (
+                  <div>
+                    <h3 style={{textAlign: 'center'}}>Please select a session from the left.</h3>
+                  </div>
+                  )} />
+                <Route path={`${matchPath}/:sessionID`} render={({ match }) => {
+                  const session = this.state.sessions.find((a)=>
+                    a.id === match.params.sessionID
+                  );
+                  return (
+                    <Rounds session={session}/>
+                  );
+                }}/>
+              </Card>
+            </Container>
+          </Col>
+        </Row>
+      </Col>
+    </Row>
+    </Container>
     );
   }
 }

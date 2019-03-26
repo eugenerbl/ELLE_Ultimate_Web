@@ -39,7 +39,7 @@ submitPass(e) {
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('jwt')
     }
-        axios.post('http://10.171.204.206/users/reset', data, {headers:headers})
+        axios.post(this.props.serviceIP + '/users/reset', data, {headers:headers})
         .then(res => {
           console.log(res.data);
         }).catch(function (error) {
@@ -48,7 +48,7 @@ submitPass(e) {
   }
 
   componentDidMount() {
-      axios.get('http://10.171.204.206/user', {
+      axios.get(this.props.serviceIP + '/user', {
         headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') }
       }).then(res => {
           console.log(res.data);
