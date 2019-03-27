@@ -148,8 +148,7 @@ export default class Decks extends Component {
                   <button onClick={
                     () => {
                       this.dRef.updateDeck({
-                        id: this.state.deckID,
-                        deck: this.state.decks.find((a) => a.id === this.state.deckID)
+                        deck: deck
                       })
                       this.setState({
                         deckID: deck.id
