@@ -15,8 +15,8 @@ import '../lib/ionicons/css/ionicons.min.css';
 
 
 export default class Decks extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.toggle = this.toggle.bind(this);
     this.toggleNewCard = this.toggleNewCard.bind(this);
     this.change = this.change.bind(this);
@@ -24,7 +24,7 @@ export default class Decks extends Component {
     this.state = {
       colapse: false,
       collapseNewCard: false,
-      deckID: "",
+      deckID: "300",
       userID: "",
       username: "",
 
@@ -107,7 +107,6 @@ export default class Decks extends Component {
   }
 
   render() {
-    const matchPath = this.props.match.path;
     return (
     <Container>
     <header id="header">
@@ -143,7 +142,22 @@ export default class Decks extends Component {
         <Row>
           <Col>
             <Card>
-              <DeckNav decks={this.state.decks} decksPathname={matchPath}/>
+              {/*<DeckNav decks={this.state.decks} decksPathname={matchPath}/>*/}
+              {
+                this.state.decks.map((deck)=> (
+                  <button onClick={
+                    () => {
+                      this.dRef.updateDeck({
+                        id: this.state.deckID,
+                        deck: this.state.decks.find((a) => a.id === this.state.deckID)
+                      })
+                      this.setState({
+                        deckID: deck.id
+                      })
+                    }
+                  }>{deck.name}</button>
+                ))
+              }
               <br/>
               <Form className="thinForm" onSubmit={e => this.submitDeck(e)}>
                 <FormGroup>
@@ -187,38 +201,24 @@ export default class Decks extends Component {
       <Col className="Right Column">
         <Row>
           <Col>
-            <Container>
-              <Card>
-                <Route exact path={matchPath} render={() => (
-                  <div>
-                  <h3 style={{textAlign: 'center'}}>Please select a deck from the left.</h3>
-                  </div>
-                )} />
-                <Route path={`${matchPath}/:id`} render={({ match }) => {
-                  const deck = this.state.decks.find((a) => a.id === match.params.id);
-                  return (
-                    <Container>
-                      <Deck
-                        id={match.params.id}
-                        deck={deck}
-                        deckPathname={matchPath}
-                        serviceIP={this.props.serviceIP}>
-                      </Deck>
-                      <Button color="info" onClick={this.toggleNewCard}	block>Add Card</Button>
-                      <br></br>
-                      <Collapse isOpen={this.state.collapseNewCard}>
-                        <AddCard
-                          id={match.params.id}
-                          serviceIP={this.props.serviceIP}>
-                        </AddCard>
-                      </Collapse>
-                      <br></br>
-                    </Container>
-                  );
-                }}/>
-              </Card>
-              <br></br><br></br>
-            </Container>
+            <Deck
+              ref={dRef => {
+                this.dRef = dRef;
+              }}
+              id={this.state.deckID}
+              deck={this.state.decks.find((a) => a.id === this.state.deckID)}
+              serviceIP={this.props.serviceIP}>
+            </Deck>
+            <Button color="info" onClick={this.toggleNewCard}	block>Add Card</Button>
+            <br></br>
+            <Collapse isOpen={this.state.collapseNewCard}>
+              <AddCard
+                id={this.state.deckID}
+                serviceIP={this.props.serviceIP}>
+              </AddCard>
+            </Collapse>
+            <br></br>
+            <br></br><br></br>
           </Col>
         </Row>
       </Col>

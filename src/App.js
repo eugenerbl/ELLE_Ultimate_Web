@@ -29,7 +29,7 @@ class App extends Component {
 
   render() {
     return (
-        <Router>
+      <Router>
         <div>
           <Switch>
             <Route exact path="/home" component={Home} />
@@ -49,7 +49,7 @@ class App extends Component {
             </AuthUser>
           </Switch>
           </div>
-        </Router>
+      </Router>
     );
   }
 }

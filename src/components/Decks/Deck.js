@@ -20,6 +20,14 @@ class Deck extends React.Component {
     };
 
   }
+
+  updateDeck(e) {
+    this.setState({
+      id: e.id,
+      deck: e.data
+    })
+  }
+
   change(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -34,12 +42,12 @@ class Deck extends React.Component {
       var headers = {
           'Authorization': 'Bearer ' + localStorage.getItem('jwt')
       }
-          axios.delete(this.props.serviceIP + '/card', data, {headers:headers})
-          .then(res => {
-            console.log(res.data);
-          }).catch(function (error) {
-            console.log(error);
-          });
+      axios.delete(this.props.serviceIP + '/card', data, {headers:headers
+      }).then(res => {
+        console.log(res.data);
+      }).catch(function (error) {
+        console.log(error);
+      });
   }
 
   componentDidMount() {
@@ -53,7 +61,21 @@ class Deck extends React.Component {
           console.log(error);
         });
         console.log(this.state.deck);
-    }
+  }
+
+  componentDidUpdate() {
+    axios.get(this.props.serviceIP + '/deck/' +this.state.id, {
+      headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') },
+    }).then(res => {
+      console.log(res.data);
+      this.setState({
+        cards : res.data 
+      });
+    }).catch(function (error) {
+      console.log(error);
+    });
+    console.log(this.state.deck);
+  }
 
 
   render () {
