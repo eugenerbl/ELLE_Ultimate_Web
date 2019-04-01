@@ -21,6 +21,12 @@ class AddCard extends React.Component {
 		};
 	}
 
+	updateDeckID(newID) {
+		this.setState({
+			id: newID,
+		})
+	}
+
 	picFileChangedHandler = (event) => {
 	  this.setState({
 			selectedPicFile: event.target.files[0]
@@ -86,6 +92,8 @@ class AddCard extends React.Component {
 
 		render () {
 	    return (
+				<div>
+				{this.state.id != "" ? 
 				<Form onSubmit={e => this.submitCard(e)}>
 					<Row>
 						<Col>
@@ -151,7 +159,7 @@ class AddCard extends React.Component {
 						<Button color="primary" type="submit" block>Add Card</Button>
 					</Col>
 				</Row>
-				</Form>
+				</Form> : null }</div>
 	    )
 		}
 }

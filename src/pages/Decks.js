@@ -6,6 +6,7 @@ import axios from 'axios';
 import AddCard from '../components/Decks/AddCard';
 import DeckNav from '../components/Decks/DeckNav';
 import Deck from '../components/Decks/Deck';
+import Template from '../pages/Template';
 
 import '../stylesheets/style.css';
 import '../lib/bootstrap/css/bootstrap.min.css';
@@ -24,7 +25,7 @@ export default class Decks extends Component {
     this.state = {
       colapse: false,
       collapseNewCard: false,
-      deckID: "300",
+      deckID: "",
       userID: "",
       username: "",
 
@@ -109,32 +110,7 @@ export default class Decks extends Component {
   render() {
     return (
     <Container>
-    <header id="header">
-      <div className="container">
-        <div id="logo" className="pull-left">
-          <Link to='/'>
-            <img src={require('../Images/ELLE/ELLE-Background-Full.png')}
-                 alt="ELLE Ultimate" title="Home" className="mainLogoStyle"/>
-          </Link>
-        </div>
-        <nav id="nav-menu-container">
-          <ul className="nav-menu">
-            <li><Link to='/downloads'>Download</Link></li>
-            <li><Link to='/profile'>My Profile</Link></li>
-            <li><Link to='/signup'>Sign Up</Link></li>
-            <li><Link to='/login'>Login</Link></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <br></br>
-    <div className="btn-group" style={{width: '100%'}}>
-      <button><Link to="/profile" className="customLink">Profile</Link></button>
-      <button className="active"><Link to="/decks" className="customLink">Decks</Link></button>
-      <button><Link to="/sessions" className="customLink">Sessions</Link></button>
-      <button><Link to="/userlist" className="customLink">User List</Link></button>
-      <button><Link to="/logout" className="customLink">Sign Out</Link></button>
-    </div>
+    <Template/>
     <br></br><br></br>
     <h3>Your Elle VR Decks:</h3>
     <Row className="Seperated Col">
@@ -150,6 +126,7 @@ export default class Decks extends Component {
                       this.dRef.updateDeck({
                         deck: deck
                       })
+                      this.ncRef.updateDeckID(deck.id)
                       this.setState({
                         deckID: deck.id
                       })
@@ -210,8 +187,11 @@ export default class Decks extends Component {
             </Deck>
             <Button color="info" onClick={this.toggleNewCard}	block>Add Card</Button>
             <br></br>
-            <Collapse isOpen={this.state.collapseNewCard}>
+             <Collapse isOpen={this.state.collapseNewCard}>
               <AddCard
+                ref={ncRef => {
+                  this.ncRef = ncRef;
+                }}
                 id={this.state.deckID}
                 serviceIP={this.props.serviceIP}>
               </AddCard>

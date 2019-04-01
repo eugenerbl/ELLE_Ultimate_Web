@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink as RNavLink} from 'react-router-dom';
+import { NavLink as RNavLink, Link} from 'react-router-dom';
+import { Container } from 'reactstrap';
 import {
   Collapse,
   Navbar,
@@ -30,36 +31,25 @@ export default class Template extends React.Component {
   }
   render() {
     return (
-      <div>
-        <Navbar light expand="md">
-          <NavbarBrand to="/decks" tag={RNavLink}>Elle VR</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink to="/decks" tag={RNavLink}>Decks</NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  User
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    <NavLink to="/profile" tag={RNavLink}>Profile</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink to="/userlist" tag={RNavLink}>UserList</NavLink>
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    <NavLink to="/logout" tag={RNavLink}>Sign Out</NavLink>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </Nav>
-          </Collapse>
-        </Navbar>
+      <header id="header">
+      <div className="container">
+        <div id="logo" className="pull-left">
+          <Link to='/'>
+            <img src={require('../Images/ELLE/ELLE-Background-Full.png')}
+                 alt="ELLE Ultimate" title="Home" className="mainLogoStyle"/>
+          </Link>
+        </div>
+        <nav id="nav-menu-container">
+          <ul className="nav-menu">
+            <li><Link to='/downloads'>Download</Link></li>
+            <li><Link to='/decks'>Decks</Link></li>
+            <li><Link to='/profile'>Profile</Link></li>
+            <li><Link to='/userlist'>User List</Link></li>
+            <li><Link to='/logout'>Signout</Link></li>
+          </ul>
+        </nav>
       </div>
+    </header>
     );
   }
 }

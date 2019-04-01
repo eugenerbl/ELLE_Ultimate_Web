@@ -15,11 +15,11 @@ const CardList = (props) => {
             </tr>
           </thead>
           <tbody>
-            {props.cards.map((cards) => {
+            {props.cards.map((card) => {
               return (
                 <Card
-                  key={cards.cardID}
-                  cards={cards}/>
+                  key={card.cardID}
+                  card={card}/>
               )
             })}
           </tbody>

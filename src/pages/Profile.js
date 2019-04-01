@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Template from './Template';
 
 export default class Profile extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class Profile extends React.Component {
         username: "temp",
         permissionGroup: "Admin",
         isPendingAdmin: "1",
-        sex: "M",
+        //sex: "M",
         age: "18",
         motivation: "Test",
         newpass: "",
@@ -67,33 +68,7 @@ submitPass(e) {
   render() {
     return (
       <Container>
-	  
-	  <header id="header">
-			<div className="container">
-				<div id="logo" className="pull-left">
-					<Link to='/'><img src={require('../Images/ELLE/ELLE-Background-Full.png')} alt="ELLE Ultimate"
-					title="Home" className="mainLogoStyle"/></Link>
-				</div>
-
-				<nav id="nav-menu-container">
-					<ul className="nav-menu">
-						<li><Link to='/downloads'>Download</Link></li>
-						<li><Link to='/profile'>My Profile</Link></li>
-						<li><Link to='/signup'>Sign Up</Link></li>
-						<li><Link to='/login'>Login</Link></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-		<br></br>
-		
-		<div className="btn-group" style={{width: '100%'}}>
-			<button className="active"><Link to="/profile" className="customLink">Profile</Link></button>
-			<button><Link to="/decks" className="customLink">Decks</Link></button>
-			<button><Link to="/sessions" className="customLink">Sessions</Link></button>
-			<button><Link to="/userlist" className="customLink">User List</Link></button>
-			<button><Link to="/logout" className="customLink">Sign Out</Link></button>
-		</div>
+      <Template/>
 		<br></br><br></br>
 	  
       <h3>Your Profile</h3>

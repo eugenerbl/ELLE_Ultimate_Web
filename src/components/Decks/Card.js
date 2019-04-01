@@ -10,7 +10,7 @@ class Card extends React.Component {
     this.downloadAudio = this.downloadAudio.bind(this);
 
     this.state = {
-      cards: this.props.cards
+      card: this.props.card
     }
 
   }
@@ -30,11 +30,11 @@ class Card extends React.Component {
   render() {
     return (
       <tr>
-  			<td>{this.state.cards.front}</td>
-  			<td>{this.state.cards.back}</td>
-        <td><Button onClick={this.downloadImg(this.state.cards.cardID)}>Image</Button></td>
-        <td><Button onClick={this.downloadAudio(this.state.cards.cardID)}>Audio</Button></td>
-        <td>{this.state.cards.cardID}</td>
+  			<td>{this.state.card.front}</td>
+  			<td>{this.state.card.back}</td>
+        <td><Button onClick={this.downloadImg(this.state.card.cardID)}>Image</Button></td>
+        <td><Button onClick={this.downloadAudio(this.state.card.cardID)}>Audio</Button></td>
+        <td>{this.state.card.cardID}</td>
       </tr>
     );
   }

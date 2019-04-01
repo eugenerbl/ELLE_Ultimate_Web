@@ -16,7 +16,7 @@ class Deck extends React.Component {
       deckName: '',
       ttype: "",
 
-      cards: [],
+      cards: [],//{front: "Select a", back: "deck!", cardID: "1"}],
     };
 
   }
@@ -62,7 +62,7 @@ class Deck extends React.Component {
   }
 
   componentDidMount() {
-      axios.get(this.props.serviceIP + '/deck/' +this.state.id, {
+      /*axios.get(this.props.serviceIP + '/deck/' +this.state.id, {
         headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') },
       }).then(res => {
           console.log(res.data);
@@ -71,7 +71,7 @@ class Deck extends React.Component {
         }).catch(function (error) {
           console.log(error);
         });
-        console.log(this.state.deck);
+        console.log(this.state.deck);*/
   }
 
   render () {
