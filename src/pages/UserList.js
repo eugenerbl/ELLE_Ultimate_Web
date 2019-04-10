@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Container, Table } from 'reactstrap';
 import axios from 'axios';
 
@@ -53,7 +52,8 @@ class UserList extends Component {
   render() {
     return (
     <Container className="user-list">
-      <Template/>      
+      <Template/>
+			<br></br><br></br>			
       <div>
       <h3>List of Users</h3>
         <Table hover>

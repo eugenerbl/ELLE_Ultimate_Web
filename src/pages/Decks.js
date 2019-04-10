@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Collapse, Button, Card, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
-import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
   
 import AddCard from '../components/Decks/AddCard';
-import DeckNav from '../components/Decks/DeckNav';
 import Deck from '../components/Decks/Deck';
 import Template from '../pages/Template';
 
@@ -119,9 +117,10 @@ export default class Decks extends Component {
           <Col>
             <Card>
               {/*<DeckNav decks={this.state.decks} decksPathname={matchPath}/>*/}
+							{/*import DeckNav from '../components/Decks/DeckNav';*/}
               {
                 this.state.decks.map((deck)=> (
-                  <button onClick={
+                  <button id="deckButton" onClick={
                     () => {
                       this.dRef.updateDeck({
                         deck: deck

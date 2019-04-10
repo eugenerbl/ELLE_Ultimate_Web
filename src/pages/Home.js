@@ -10,18 +10,6 @@ import '../lib/ionicons/css/ionicons.min.css';
 const Home = (props) => {
   return (
 	<div>
-	{/*import { Jumbotron, Button } from 'reactstrap';*/}
-	{/*<Jumbotron>
-        <h1 className="display-3">Welcome!</h1>
-        <p className="lead">This is a simple message to new users.</p>
-        <hr className="my-2" />
-        <p>Helpful Information will be added soon!</p>
-        <p className="lead">
-          <Button tag={Link} color="primary" to='/login' >Login</Button>
-          <Button tag={Link} color="info" to='/signup' >Signup</Button>
-        </p>
-	</Jumbotron>*/}
-	
 		<header id="header">
 			<div className="container">
 				<div id="logo" className="pull-left">
@@ -35,7 +23,7 @@ const Home = (props) => {
 						<li><Link to='/profile'>My Profile</Link></li>
 						<li><Link to='/signup'>Sign Up</Link></li>
 						<li><Link to='/login'>Login</Link></li>
-						<li><a href="www.google.com" className="github"><i className="fa fa-github fa-lg"></i></a></li>
+						<li><a href="https://www.github.com/ItsNotRick/elle" className="github"><i className="fa fa-github fa-lg"></i></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -43,10 +31,9 @@ const Home = (props) => {
    
 		<section id="intro">
 			<div className="intro-content">
-				<h2>Learn a <span>new language</span><br />your way.</h2>
+				<h2>The <span>ultimate</span> way<br />to learn a language.</h2>
 				<div>
-					<a href="#about" className="btn-get-started scrollto">Get Started</a>
-					<a href="#portfolio" className="btn-projects scrollto">Download ELLE</a>
+					<Link to='/downloads' className="btn-get-started scrollto">Download ELLE</Link>
 				</div>
 			</div>
 			<div id="intro-carousel" className="owl-carousel">
@@ -136,9 +123,9 @@ const Home = (props) => {
 							<h4>Kalonte Jackson-Tate</h4>
 							<span>Chief Executive Officer</span>
 							<div className="social">
-								<a href><i className="fa fa-twitter" /></a>
+								{/*<a href><i className="fa fa-twitter" /></a>
 								<a href><i className="fa fa-facebook" /></a>
-								<a href><i className="fa fa-linkedin" /></a>
+							<a href><i className="fa fa-linkedin" /></a>*/}
 							</div>
 						</div>
 					</div>
@@ -151,8 +138,8 @@ const Home = (props) => {
 							<h4>Eugene Lucino</h4>
 							<span>Front End- Website</span>
 							<div className="social">
-								<a href><i className="fa fa-facebook" /></a>
-								<a href><i className="fa fa-linkedin" /></a>
+								{/*<a href><i className="fa fa-facebook" /></a>
+							<a href><i className="fa fa-linkedin" /></a>*/}
 							</div>
 						</div>
 					</div>
@@ -165,9 +152,9 @@ const Home = (props) => {
 							<h4>Christopher Rodbourne</h4>
 							<span>CTO</span>
 							<div className="social">
-								<a href><i className="fa fa-twitter" /></a>
+							{/*<a href><i className="fa fa-twitter" /></a>
 								<a href><i className="fa fa-facebook" /></a>
-								<a href><i className="fa fa-linkedin" /></a>
+							<a href><i className="fa fa-linkedin" /></a>*/}
 							</div>
 							</div>
 					</div>
@@ -180,9 +167,9 @@ const Home = (props) => {
 							<h4>Josh Sewnath</h4>
 							<span>Accountant</span>
 							<div className="social">
-								<a href><i className="fa fa-twitter" /></a>
+								{/*<a href><i className="fa fa-twitter" /></a>
 								<a href><i className="fa fa-facebook" /></a>
-								<a href><i className="fa fa-linkedin" /></a>
+							<a href><i className="fa fa-linkedin" /></a>*/}
 							</div>
 						</div>
 					</div>
@@ -195,9 +182,9 @@ const Home = (props) => {
 							<h4>Patrick Thompson</h4>
 							<span>Accountant</span>
 							<div className="social">
-								<a href><i className="fa fa-twitter" /></a>
+								{/*<a href><i className="fa fa-twitter" /></a>
 								<a href><i className="fa fa-facebook" /></a>
-								<a href><i className="fa fa-linkedin" /></a>
+							<a href><i className="fa fa-linkedin" /></a>*/}
 							</div>
 						</div>
 					</div>

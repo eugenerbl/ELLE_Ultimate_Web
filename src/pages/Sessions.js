@@ -1,21 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Container, Row, Col, } from 'reactstrap';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
-
-import { NavLink as RNavLink} from 'react-router-dom';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
 
 import SessionNav from '../components/Sessions/SessionNav';
 import Rounds from '../components/Sessions/Rounds';
@@ -51,7 +37,7 @@ export default class Sessions extends Component {
     <Container>
     <Template/>
     <br></br><br></br>
-    <h3>Your Elle VR Sessions:</h3>
+    <h3>Your ELLE Sessions:</h3>
     <Row className="Seperated Col">
       <Col className="Left Column" xs="3">
         <Row>

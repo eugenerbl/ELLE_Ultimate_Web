@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Template from './Template';
 
 export default class Profile extends React.Component {
