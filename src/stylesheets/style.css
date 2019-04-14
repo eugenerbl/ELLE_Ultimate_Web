@@ -670,68 +670,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
-
-/* Our Portfolio Section
---------------------------------
-#portfolio {
-  background: #fff;
-  padding: 30px 0;
-}
-
-#portfolio .portfolio-overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-  -webkit-transition: all ease-in-out 0.4s;
-  transition: all ease-in-out 0.4s;
-}
-
-#portfolio .portfolio-item {
-  overflow: hidden;
-  position: relative;
-  padding: 0;
-  vertical-align: middle;
-  text-align: center;
-}
-
-#portfolio .portfolio-item h2 {
-  color: #ffffff;
-  font-size: 24px;
-  margin: 0;
-  text-transform: capitalize;
-  font-weight: 700;
-}
-
-#portfolio .portfolio-item img {
-  -webkit-transition: all ease-in-out 0.4s;
-  transition: all ease-in-out 0.4s;
-  width: 100%;
-}
-
-#portfolio .portfolio-item:hover img {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-#portfolio .portfolio-item:hover .portfolio-overlay {
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.7);
-}
-
-#portfolio .portfolio-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-*/
-
 /* Call To Action Section
 --------------------------------*/
 #call-to-action {
@@ -777,6 +715,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   border: 3px solid #50d8af;
 }
 
+#call-to-action .btn-right:hover {
+  background: #0c2e8a;
+  border: 3px solid #0c2e8a;
+}
+
 /* Our Team Section
 --------------------------------*/
 #team {
@@ -802,7 +745,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #50d8af;
   color: #fff;
   padding: 15px;
-  border-radius: 0 0 3px 3px;
+  border-radius: 3px;
 }
 
 #team .member h4 {
@@ -858,7 +801,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Profile Picture
 --------------------------------------------------------------*/
-
+/*
 .portrait {
 	position: relative;
 	width: 200px;
@@ -875,7 +818,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 		-ms-transform: translate(-50%,-50%);
 			transform: translate(-50%,-50%);
 }
+*/
 
+/*--------------------------------------------------------------
+# Main Logo
+--------------------------------------------------------------*/
 
 .mainLogoStyle {
 	width: 150px;

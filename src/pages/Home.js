@@ -21,19 +21,20 @@ const Home = (props) => {
 					<ul className="nav-menu">
 						<li><Link to='/downloads'>Download</Link></li>
 						<li><Link to='/profile'>My Profile</Link></li>
+						<li><Link to='/login'>Log In</Link></li>
 						<li><Link to='/signup'>Sign Up</Link></li>
-						<li><Link to='/login'>Login</Link></li>
 						<li><a href="https://www.github.com/ItsNotRick/elle" className="github"><i className="fa fa-github fa-lg"></i></a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
-   
+
+
 		<section id="intro">
 			<div className="intro-content">
 				<h2>The <span>ultimate</span> way<br />to learn a language.</h2>
 				<div>
-					<Link to='/downloads' className="btn-get-started scrollto">Download ELLE</Link>
+					<Link to='/downloads' className="btn-projects scrollto">Download ELLE</Link>
 				</div>
 			</div>
 			<div id="intro-carousel" className="owl-carousel">
@@ -45,18 +46,19 @@ const Home = (props) => {
 			</div>
 		</section>
 
+
 		<section id="about" className="wow fadeInUp">
 			<div className="container">
 				<div className="row">
 					<div className="col-lg-6 about-img">
-						<img src={require('../Images/ELLE/about-img.jpg')} alt=""/>
+						<img src={require('../Images/ELLE/ELLE_Login.jpg')} alt=""/>
 					</div>
 					<div className="col-lg-6 content">
-						<h2>Meet ELLE- the Ultimate Language Learner.</h2>
-						<h3>Introducing a new way to learn a new language.</h3>
+						<h2>Meet the Endless Learner.</h2>
 						<ul>
-							<li><i className="ion-android-checkmark-circle" /> Play an endless runner game where you choose the right words to keep going!</li>
-							<li><i className="ion-android-checkmark-circle" /> Create an account to view your stats, compare your scores, and make new language packs!</li>
+							<li><i className="ion-android-checkmark-circle" /> Play an endless runner game where you choose the right translations to keep going!</li>
+							<li><i className="ion-android-checkmark-circle" /> Create an account to view statistics, compare your scores, and make new language packs!</li>
+							<li><i className="ion-android-checkmark-circle" /> Use ELLE to study for exams or conduct research of your own!</li>
 							<li><i className="ion-android-checkmark-circle" /> Available in desktop, mobile, and virtual reality versions!</li>
 						</ul>
 					</div>
@@ -64,36 +66,37 @@ const Home = (props) => {
 			</div>
 			<br />
 		</section>
-	
+
+
 		<section id="services" className="wow fadeInUp">
 			<div className="container">
 				<div className="section-header">
-					<h2>Services</h2>
-					<p> Creating an account with us gives you an extended profile and exclusive tools to make the most of your ELLE experience.</p>
+					<h2>What's possible with ELLE</h2>
+					<p><Link to='/signup'>Sign up</Link> for ELLE now and get a unique profile and tools to make the most of your ELLE experience.</p>
 				</div>
 				<div className="row">
 					<div className="col-lg-6">
 						<div className="box wow fadeInLeft">
-							<div className="icon"><i className="fa fa-bar-chart" /></div>
-							<h4 className="title">Statistics</h4>
-							<p className="description">View play data from every session you've ever played. See how well you do on certain languages
-							and what words you should work on the most.</p>
+							<div className="icon"><i className="fa fa-list-ol" /></div>
+							<h4 className="title">Study Vocabulary</h4>
+							<p className="description">You can view a list of words from every language pack you have. You can view words,
+							their translations, and their image and audio files.</p>
 						</div>
 					</div>
 					<div className="col-lg-6">
 						<div className="box wow fadeInRight">
 							<div className="icon"><i className="fa fa-language" /></div>
-							<h4 className="title">Create Language Packs</h4>
-							<p className="description">Build a dictionary of words to be tested on with ease. Play games with any packs that you create,
-							or play games with packs made by other players.</p>
+							<h4 className="title">Create Language Decks</h4>
+							<p className="description">Build a dictionary of words for any language. Play games with any decks that you create,
+							or play games with decks made by other players.</p>
 						</div>
 					</div>
 					<div className="col-lg-6">
 						<div className="box wow fadeInLeft" data-wow-delay="0.2s">
-							<div className="icon"><i className="fa fa-list-ol" /></div>
-							<h4 className="title">Study Vocabulary</h4>
-							<p className="description">View a list of vocabulary words from every language pack you have encountered. You can view words,
-							their translations, and their image and audio files.</p>
+							<div className="icon"><i className="fa fa-bar-chart" /></div>
+							<h4 className="title">View Statistics</h4>
+							<p className="description">Look at data from every session you've ever played. See how well you do on certain languages
+							and what words you should work on the most.</p>
 						</div>
 					</div>
 					<div className="col-lg-6">
@@ -101,12 +104,13 @@ const Home = (props) => {
 							<div className="icon"><i className="fa fa-user" /></div>
 							<h4 className="title">Communicate with Instructors</h4>
 							<p className="description">ELLE makes it easy for instructors to see how you are progressing through a language.
-							They can see your accuracy and sessions and use it to help you learn.</p>
+							They can use your scores and sessions and to help students learn.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
+
 
 	<section id="team" className="wow fadeInUp">
 		<div className="container">
@@ -118,10 +122,10 @@ const Home = (props) => {
 				
 				<div className="col-lg-2 col-md-6">
 					<div className="member">
-						<div className="pic"><img src={require('../Images/ELLE/team-1.jpg')} alt=""/></div>
+					{/*<div className="pic"><img src={require('../Images/ELLE/team-1.jpg')} alt=""/></div>*/}
 						<div className="details">
 							<h4>Kalonte Jackson-Tate</h4>
-							<span>Chief Executive Officer</span>
+							<span>Database Front End</span>
 							<div className="social">
 								{/*<a href><i className="fa fa-twitter" /></a>
 								<a href><i className="fa fa-facebook" /></a>
@@ -133,10 +137,11 @@ const Home = (props) => {
 				
 				<div className="col-lg-2 col-md-6">
 					<div className="member">
-						<div className="pic"><img src={require('../Images/ELLE/team-2.jpg')} alt=""/></div>
+						{/*<div className="pic"><img src={require('../Images/ELLE/team-2.jpg')} alt=""/></div>*/}
 						<div className="details">
-							<h4>Eugene Lucino</h4>
-							<span>Front End- Website</span>
+							<h4>Eugene</h4>
+							<h4>Lucino</h4>
+							<span>Website Front End</span>
 							<div className="social">
 								{/*<a href><i className="fa fa-facebook" /></a>
 							<a href><i className="fa fa-linkedin" /></a>*/}
@@ -147,10 +152,10 @@ const Home = (props) => {
 				
 				<div className="col-lg-2 col-md-6">
 					<div className="member">
-						<div className="pic"><img src={require('../Images/ELLE/team-3.jpg')} alt=""/></div>
+						{/*<div className="pic"><img src={require('../Images/ELLE/team-3.jpg')} alt=""/></div>*/}
 						<div className="details">
 							<h4>Christopher Rodbourne</h4>
-							<span>CTO</span>
+							<span>Database, API, Mobile</span>
 							<div className="social">
 							{/*<a href><i className="fa fa-twitter" /></a>
 								<a href><i className="fa fa-facebook" /></a>
@@ -162,10 +167,11 @@ const Home = (props) => {
 				
 				<div className="col-lg-2 col-md-6">
 					<div className="member">
-						<div className="pic"><img src={require('../Images/ELLE/team-4.jpg')} alt=""/></div>
+						{/*<div className="pic"><img src={require('../Images/ELLE/team-4.jpg')} alt=""/></div>*/}
 						<div className="details">
-							<h4>Josh Sewnath</h4>
-							<span>Accountant</span>
+							<h4>Josh</h4>
+							<h4>Sewnath</h4>
+							<span>Project ELLE</span>
 							<div className="social">
 								{/*<a href><i className="fa fa-twitter" /></a>
 								<a href><i className="fa fa-facebook" /></a>
@@ -177,10 +183,10 @@ const Home = (props) => {
 				
 				<div className="col-lg-2 col-md-6">
 					<div className="member">
-						<div className="pic"><img src={require('../Images/ELLE/testimonial-4.jpg')} alt=""/></div>
+						{/*<div className="pic"><img src={require('../Images/ELLE/testimonial-4.jpg')} alt=""/></div>*/}
 						<div className="details">
 							<h4>Patrick Thompson</h4>
-							<span>Accountant</span>
+							<span>Project Manager</span>
 							<div className="social">
 								{/*<a href><i className="fa fa-twitter" /></a>
 								<a href><i className="fa fa-facebook" /></a>
@@ -192,17 +198,18 @@ const Home = (props) => {
 				
 				<div className="col-lg-1"><div className="member" /></div>
 			</div> <br />
-				
+			
+
 			<div className="section-header">
 				<h2>Sponsors</h2>
 			</div>
 			<div className="row" style={{textAlign: 'center'}}>
 				<div className="col-lg-12">
-					<h2>UCF GaIM Research Group</h2>
-					<p>Orlando Tech Center Bldg 500, Orlando, FL 32826</p><p>
-					<a href="https://gamesresearch.cah.ucf.edu/">Official Site</a>
-					<br />
-				</p></div>
+					<h2><a href="https://gamesresearch.cah.ucf.edu/elle-the-endless-learner/">
+						UCF GaIM Research Group</a></h2>
+					<p>Orlando Tech Center Bldg 500, Orlando, FL 32826</p>
+					<p><br /></p>
+				</div>
 			</div>
 			<div className="row" style={{textAlign: 'center'}}>
 				<div className="col-lg-4">
@@ -222,9 +229,19 @@ const Home = (props) => {
 	</section>
 
 	
+	<div className="row" style={{textAlign: 'center'}}>
+		<div className="col-lg-12">
+			<br/><br/>
+			<p>ELLE is a Senior Design project made at the University of Central
+				Florida under the direction of Dr. Mark Heinrich.</p>
+			<br/>
+		</div>
+	</div>
+
+	
 	<footer id="footer">
 		<div className="container">
-			<div className="copyright">&copy; Copyright <strong>Reveal</strong>. All Rights Reserved</div>
+			<div className="copyright">&copy; Copyright 2019 <strong>Reveal</strong>. All Rights Reserved</div>
 			<div className="credits">
 			{/*
 			All the links in the footer should remain intact.

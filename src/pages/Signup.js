@@ -68,8 +68,9 @@ export default class Signup extends React.Component {
           <ul className="nav-menu">
             <li><Link to='/downloads'>Download</Link></li>
             <li><Link to='/profile'>My Profile</Link></li>
-            <li><Link to='/signup'>Sign Up</Link></li>
-            <li><Link to='/login'>Login</Link></li>
+            <li><Link to='/login'>Log In</Link></li>
+						<li><Link to='/signup'>Sign Up</Link></li>
+						<li><a href="https://www.github.com/ItsNotRick/elle" className="github"><i className="fa fa-github fa-lg"></i></a></li>
           </ul>
         </nav>
       </div>
@@ -132,70 +133,11 @@ export default class Signup extends React.Component {
         </Form>
         <br></br>
         <p>
-          Already have an account?
-          <Link to ='/Login' style={{color: '#5FAEB5'}}>Log in.</Link>
+          Already have an account? &nbsp;
+          <Link to ='/Login' style={{color: 'white', textDecoration: 'underline'}}>Log in.</Link>
         </p>
       </div>
     </div>
-      {/*
-      <div className="row main">
-      <div className="main-login main-center">
-      <h4 style={{textAlign: 'center'}}>Start your ELLE experience today.</h4>
-      <form className method="post" action="#">
-      <div className="form-group">
-      <label htmlFor="name" className="cols-sm-2 control-label">Your Name</label>
-      <div className="cols-sm-10">
-      <div className="input-group">
-        <span className="input-group-addon"><i className="fa fa-user fa" aria-hidden="true" /></span>
-          <input type="text" className="form-control" name="name" id="name" placeholder="Name" />
-      </div>
-      </div>
-      </div>
-      <div className="form-group">
-      <label htmlFor="email" className="cols-sm-2 control-label">Your Email</label>
-      <div className="cols-sm-10">
-      <div className="input-group">
-          <span className="input-group-addon"><i className="fa fa-envelope fa" aria-hidden="true" /></span>
-          <input type="text" className="form-control" name="email" id="email" placeholder="Email" />
-      </div>
-      </div>
-      </div>
-      <div className="form-group">
-      <label htmlFor="username" className="cols-sm-2 control-label">Username</label>
-      <div className="cols-sm-10">
-      <div className="input-group">
-        <span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true" /></span>
-        <input type="text" className="form-control" name="username" id="username" placeholder="Username" />
-      </div>
-      </div>
-      </div>
-      <div className="form-group">
-      <label htmlFor="password" className="cols-sm-2 control-label">Password</label>
-      <div className="cols-sm-10">
-      <div className="input-group">
-        <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true" /></span>
-        <input type="password" className="form-control" name="password" id="password" placeholder="Password" />
-      </div>
-      </div>
-      </div>
-      <div className="form-group">
-      <label htmlFor="confirm" className="cols-sm-2 control-label">Confirm Password</label>
-      <div className="cols-sm-10">
-      <div className="input-group">
-        <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true" /></span>
-        <input type="password" className="form-control" name="confirm" id="confirm" placeholder="Confirm Password" />
-      </div>
-      </div>
-      </div>
-      <div className="form-group ">
-      <a href="#" type="button" id="btnLogin" className="btn btn-primary btn-lg btn-block login-button">Register</a>
-      </div>
-      </form>
-      <h5>Already have an account? <a href="login.html">Login here.</a></h5>
-      </div>
-      </div>
-      */}
-      
   </Container>
   );
   }

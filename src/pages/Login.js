@@ -55,34 +55,14 @@ export default class Login extends Component {
             <ul className="nav-menu">
               <li><Link to='/downloads'>Download</Link></li>
               <li><Link to='/profile'>My Profile</Link></li>
-              <li><Link to='/signup'>Sign Up</Link></li>
-              <li><Link to='/login'>Login</Link></li>
+              <li><Link to='/login'>Log In</Link></li>
+							<li><Link to='/signup'>Sign Up</Link></li>
+							<li><a href="https://www.github.com/ItsNotRick/elle" className="github"><i className="fa fa-github fa-lg"></i></a></li>
             </ul>
           </nav>
         </div>
       </header>
-      {/*
-        <h3>Login</h3>
-        <Form onSubmit={e => this.submit(e)}>
-          <FormGroup>
-            <Label for="username">Username</Label>
-            <Input type="username" name="username"
-            onChange={e => this.change(e)}
-            value={this.state.username}
-            id="username" placeholder="Username" />
-          </FormGroup>
-          {' '}
-          <FormGroup>
-            <Label for="password">Password</Label>
-            <Input type="password" name="password"
-            onChange={e => this.change(e)}
-            value={this.state.password}
-            id="password" placeholder="Password" />
-          </FormGroup>
-          {' '}
-          <Button color="primary" type="submit">Submit</Button>
-        </Form>
-      <Link to ='/Signup' >Signup</Link>*/}
+
       <div className="row main" >
         <div className="main-login main-center">
           <h4 style={{textAlign: 'center'}}>Welcome back to ELLE.</h4>
@@ -106,25 +86,10 @@ export default class Login extends Component {
             <Button color="primary" type="submit" className="btn-block">Submit</Button>
           </Form>
           <br></br>
-          {/*
-            <div className="form-group">
-              <div className="cols-sm-10">
-                <div className="input-group">
-                  <input type="text" className="form-control" name="username" id="username" placeholder="Username" />
-                </div>
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="cols-sm-10">
-                <div className="input-group">
-                  <input type="password" className="form-control" name="password" id="password" placeholder="Password" />
-                </div>
-              </div>
-            </div>
-            <div className="form-group">
-              <a href="#" type="button" id="btnLogin" className="btn btn-primary btn-lg btn-block login-button">Log In</a>
-            </div> */}
-          <Link to ='/signup' style={{color: 'white'}}>Create an Account</Link>
+					<p>
+						Don't have an account? &nbsp;
+						<Link to ='/signup' style={{color: 'white', textDecoration: 'underline'}}>Create one.</Link>
+					</p>
         </div>
       </div>
     </Container>
