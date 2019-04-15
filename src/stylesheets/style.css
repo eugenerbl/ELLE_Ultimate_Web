@@ -833,7 +833,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Above Bar
 --------------------------------------------------------------*/
-
+/*
 .btn-group button {
   background-color: #5FAEB5;
   border: 1px solid #000000;
@@ -844,14 +844,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   width: 25%;
 }
 
-/* Clear floats (clearfix hack) */
+ Clear floats (clearfix hack) 
 .btn-group:after {
   content: "";
   clear: both;
   display: table;
 }
 
-/* Prevent double borders */
+Prevent double borders 
 .btn-group button:not(:last-child) { border-right: none; }
 
 .btn-group button:first-child { border-radius: 8px 0 0 8px; }
@@ -863,6 +863,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .btn-group .customLink { color: white; text-decoration: none; }
 .btn-group .active { background-color: #0000FF; }
+*/
 
 /*--------------------------------------------------------------
 # Card
@@ -881,4 +882,29 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #deckButton:hover { 
 	background-color: #3F6184;
+}
+
+/*--------------------------------------------------------------
+# Deck and Session Tables
+--------------------------------------------------------------*/
+
+table.tableList {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.tableList td, table.tableList th {
+  border: 1px solid #000000;
+}
+table.tableList thead {
+  background: #3F6184;
+}
+table.tableList thead th {
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+}
+table.tableList tfoot td {
+  font-size: 14px;
 }

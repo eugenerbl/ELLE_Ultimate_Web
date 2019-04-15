@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input, Container, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import MainTemplate from '../pages/MainTemplate';
 
 import '../stylesheets/loginstyle.css';
 import '../stylesheets/style.css';
@@ -43,25 +44,7 @@ export default class Login extends Component {
   render() {
     return (
     <Container>
-      <header id="header">
-        <div className="container">
-          <div id="logo" className="pull-left">
-            <Link to='/'>
-              <img src={require('../Images/ELLE/ELLE-Background-Full.png')} alt="ELLE Ultimate"
-                title="Home" className="mainLogoStyle"/>
-            </Link>
-          </div>
-          <nav id="nav-menu-container">
-            <ul className="nav-menu">
-              <li><Link to='/downloads'>Download</Link></li>
-              <li><Link to='/profile'>My Profile</Link></li>
-              <li><Link to='/login'>Log In</Link></li>
-							<li><Link to='/signup'>Sign Up</Link></li>
-							<li><a href="https://www.github.com/ItsNotRick/elle" className="github"><i className="fa fa-github fa-lg"></i></a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      <MainTemplate/>
 
       <div className="row main" >
         <div className="main-login main-center">

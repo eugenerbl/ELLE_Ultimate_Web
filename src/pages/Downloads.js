@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import MainTemplate from '../pages/MainTemplate';
 
 import '../stylesheets/style.css';
 import '../lib/bootstrap/css/bootstrap.min.css';
@@ -13,25 +13,8 @@ export default class Downloads extends Component {
 	render() {
 	return (
 	<div>
-		<header id="header">
-			<div className="container">
-				<div id="logo" className="pull-left">
-					<Link to='/'><img src={require('../Images/ELLE/ELLE-Background-Full.png')} alt="ELLE Ultimate"
-					title="Home" className="mainLogoStyle"/></Link>
-				</div>
-
-				<nav id="nav-menu-container">
-					<ul className="nav-menu">
-						<li><Link to='/downloads'>Download</Link></li>
-						<li><Link to='/profile'>My Profile</Link></li>
-						<li><Link to='/login'>Log In</Link></li>
-						<li><Link to='/signup'>Sign Up</Link></li>
-						<li><a href="https://www.github.com/ItsNotRick/elle" className="github"><i className="fa fa-github fa-lg"></i></a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-   
+		<MainTemplate/>
+		
 		<section id="intro">
 			<div className="intro-content">
 				<h2>Downloads</h2>
