@@ -18,6 +18,7 @@ export default class Signup extends React.Component {
       password: '',
       motivation: '',
       permission: 'User',
+      classID: '',
       message: '',
     }
     this.handleChange = this.handleChange.bind(this);
@@ -46,7 +47,8 @@ export default class Signup extends React.Component {
       password: this.state.password,
       age: this.state.age,
       sex: this.state.sex,
-      motivation: this.state.motivation
+      motivation: this.state.motivation,
+      classID: this.state.classID,
     }).then(res => {
       localStorage.setItem('jwt', res.data);
       this.props.history.push('/login');
@@ -127,6 +129,15 @@ export default class Signup extends React.Component {
               id="password"
               name="password"
               placeholder="*********">
+            </Input>
+          </FormGroup>
+          <FormGroup>
+            <Label for="classID">Class ID (Optional):</Label>
+            <Input value={this.state.classID}
+              onChange={e => this.change(e)}
+              id="classID"
+              name="classID"
+              placeholder="Enter Class ID">
             </Input>
           </FormGroup>
           <Button color="primary" type="submit" className="btn-block">Signup</Button>

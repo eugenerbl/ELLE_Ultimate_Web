@@ -10,10 +10,10 @@ export default class Profile extends React.Component {
     this.state = {
         userID: '',
         users: [],
-        username: "temp",
+        username: "Temp",
         permissionGroup: "Admin",
         isPendingAdmin: "1",
-        //sex: "M",
+        sex: "T",
         age: "18",
         motivation: "Test",
         newpass: "",
@@ -45,9 +45,11 @@ submitPass(e) {
         }).catch(function (error) {
           console.log(error);
         });
+        this.setState({newpass: ""});
   }
 
   componentDidMount() {
+      //axios.get(this.props.serviceIP + '/user/' + localStorage.getItem('userID'), {
       axios.get(this.props.serviceIP + '/user', {
         headers: { 'Authorization': 'Bearer ' + localStorage.getItem('jwt') }
       }).then(res => {

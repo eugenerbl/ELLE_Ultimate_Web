@@ -125,7 +125,7 @@ const Home = (props) => {
 					{/*<div className="pic"><img src={require('../Images/ELLE/team-1.jpg')} alt=""/></div>*/}
 						<div className="details">
 							<h4>Kalonte Jackson-Tate</h4>
-							<span>Database Front End</span>
+							<span>Database / Front End API</span>
 							<div className="social">
 								{/*<a href><i className="fa fa-twitter" /></a>
 								<a href><i className="fa fa-facebook" /></a>

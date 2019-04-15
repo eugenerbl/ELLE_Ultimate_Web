@@ -14,9 +14,10 @@ import UserList from './pages/UserList';
 import AuthUser from './components/Auth/AuthUser';
 import AuthAdmin from './components/Auth/AuthAdmin';
 
-let flaskIP = 'https://10.171.204.206';
-flaskIP = 'https://endlesslearner.com';
+//let flaskIP = 'https://10.171.204.206';
+//flaskIP = 'https://endlesslearner.com';
 //flaskIP = 'http://localhost:5000';
+let flaskIP = 'http://127.0.0.1:5000';
 
 class App extends Component {
   constructor() {

@@ -36,6 +36,8 @@ export default class Login extends Component {
       console.log(res.data.permissions);
       localStorage.setItem('jwt', res.data.access_token);
       localStorage.setItem('per', res.data.permissions);
+      localStorage.setItem('userID',res.data.id);
+      console.log(localStorage.getItem('userID'));
       this.props.history.push('/decks');
     });
   }
