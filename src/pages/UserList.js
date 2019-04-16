@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Table } from 'reactstrap';
 import axios from 'axios';
+import '../stylesheets/style.css';
 
 import User from '../components/UserList/User';
 import Template from './Template';
@@ -56,10 +57,10 @@ class UserList extends Component {
 			<br></br><br></br>			
       <div>
       <h3>List of Users</h3>
-        <Table hover>
+        <Table hover className="tableList">
           <thead>
             <tr>
-              <th>id</th>
+              <th>ID</th>
               <th>Username</th>
               <th>Permission</th>
             </tr>
