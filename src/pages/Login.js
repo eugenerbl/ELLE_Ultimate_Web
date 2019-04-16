@@ -15,14 +15,35 @@ export default class Login extends Component {
       username: '',
       password: '',
       message: '',
+      forgot: false,
     };
     this.change = this.change.bind(this);
     this.submit = this.submit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.forgotPass = this.forgotPass.bind(this);
   }
 
   change(e) {
     this.setState({
       [e.target.name]: e.target.value
+    })
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.setState({
+      forgot:true
+    })
+  }
+
+  forgotPass(e){
+    axios.get(this.props.serviceIP + '/forgot/'+ this.state.username,{
+    }).then(res=>{
+      localStorage.setItem('forgot_user',this.state.username);
+      this.props.history.push('/recover');
+    }).catch(error=>{
+      console.log(error.response.data.message);
+      this.setState({ 'message': error.response.data.message });
     })
   }
 
@@ -77,8 +98,14 @@ export default class Login extends Component {
           <h4 style={{textAlign: 'center'}}>Welcome back to ELLE.</h4>
           {
             this.state.message != '' &&
-            <div class="alert alert-danger" role="alert">
+            <div className="alert alert-danger" role="alert">
              {this.state.message}
+            </div>
+          }
+          {
+            this.state.forgot == true &&
+            <div className="alert alert-primary" role="alert">
+             Enter username then click the "Forgot Password" button.
             </div>
           }
           <Form onSubmit={e => this.submit(e)}>
@@ -98,12 +125,24 @@ export default class Login extends Component {
                 id="password" placeholder="Password" />
             </FormGroup>
             {' '}
+            
+            {
+            this.state.forgot == false &&
             <Button color="primary" type="submit" className="btn-block">Submit</Button>
+            }
+            {
+            this.state.forgot == true &&
+            <Button color="primary" onClick={ e => this.forgotPass(e)} className="btn-block">Forgot Password</Button>
+            }
           </Form>
           <br></br>
 					<p>
 						Don't have an account? &nbsp;
 						<Link to ='/signup' style={{color: 'white', textDecoration: 'underline'}}>Create one.</Link>
+            Forgot Your Password? &nbsp;
+            <a href="#" onClick = { e => this.handleClick(e)}>
+            Click me
+            </a>
 					</p>
         </div>
       </div>

@@ -89,7 +89,7 @@ export default class Signup extends React.Component {
         <h4 style={{textAlign: 'center'}}>Start your ELLE experience today.</h4>
         {
             this.state.message != '' &&
-            <div class="alert alert-danger" role="alert">
+            <div className="alert alert-danger" role="alert">
              {this.state.message}
             </div>
           }

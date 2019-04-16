@@ -107,6 +107,7 @@ submitPass(e) {
             value={this.state.motivation} />
           </FormGroup>
         </Form>
+        
         <Form className="PasswordReset" onSubmit={e => this.submitPass(e)}>
         <h3>Reset Password</h3>
           <FormGroup>

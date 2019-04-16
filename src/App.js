@@ -11,8 +11,10 @@ import Login from './pages/Login'
 import Logout from './pages/Logout'
 import Signup from './pages/Signup';
 import UserList from './pages/UserList';
+import Recover from './pages/Recover';
 import AuthUser from './components/Auth/AuthUser';
 import AuthAdmin from './components/Auth/AuthAdmin';
+import Stats from './pages/Stats';
 
 //let flaskIP = 'https://10.171.204.206';
 //flaskIP = 'https://endlesslearner.com';
@@ -38,6 +40,8 @@ class App extends Component {
             <Route path="/logout" render={(props)=><Logout {...props} serviceIP={flaskIP}/>}/>
             <Route path="/login" render={(props)=><Login {...props} serviceIP={flaskIP}/>}/>
             <Route path="/signup" render={(props)=><Signup {...props} serviceIP={flaskIP}/>}/>
+            <Route path="/recover" render={(props)=><Recover {...props} serviceIP={flaskIP}/>}/>
+            <Route path="/stats" render={(props)=><Stats {...props} serviceIP={flaskIP}/>}/>
             <AuthUser>
               <Route exact path="/" component={Template} />
               <Route path="/groups" render={(props)=><Groups {...props} serviceIP={flaskIP}/>}/>
