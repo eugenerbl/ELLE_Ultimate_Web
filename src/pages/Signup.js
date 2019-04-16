@@ -13,22 +13,23 @@ export default class Signup extends React.Component {
     super();
     this.state = {
       username: '',
-      age: '',
-      sex: '',
       password: '',
-      motivation: '',
+      confirm: '',
       permission: 'User',
       classID: '',
       message: '',
+      pass_question: 1,
+      pass_answer: '',
     }
     this.handleChange = this.handleChange.bind(this);
     this.change = this.change.bind(this);
     this.submit = this.submit.bind(this);
   };
 
+
   handleChange(event) {
     this.setState({
-      sex: event.target.value,
+      pass_question: event.target.value,
     })
   }
 
@@ -45,14 +46,20 @@ export default class Signup extends React.Component {
     axios.post(this.props.serviceIP + '/register', {
       username: this.state.username,
       password: this.state.password,
-      age: this.state.age,
-      sex: this.state.sex,
-      motivation: this.state.motivation,
+      confirm: this.state.confirm,
       classID: this.state.classID,
+      pass_question: this.state.pass_question,
+      pass_answer: this.state.pass_answer,
     }).then(res => {
       localStorage.setItem('jwt', res.data);
       this.props.history.push('/login');
-    });
+    }).catch(error =>{
+          console.log(error);
+          console.log(error.message);
+          console.log(error.response.data);
+          console.log(error.response.data.message);
+          this.setState({ 'message': error.response.data.message });
+        });
   }
 
   render() {
@@ -80,6 +87,12 @@ export default class Signup extends React.Component {
     <div className="row main">
       <div className="main-login main-center">
         <h4 style={{textAlign: 'center'}}>Start your ELLE experience today.</h4>
+        {
+            this.state.message != '' &&
+            <div class="alert alert-danger" role="alert">
+             {this.state.message}
+            </div>
+          }
         <Form onSubmit={e => this.submit(e)}>
           <FormGroup>
             <Label for="userName">Username:</Label>
@@ -92,45 +105,51 @@ export default class Signup extends React.Component {
             <FormFeedback>You will not be able to see this</FormFeedback>
           </FormGroup>
           <FormGroup>
-            <Label for="age">Age:</Label>
-            <Input value={this.state.age}
-              onChange={e => this.change(e)}
-              id="age"
-              name="age"
-              placeholder="18">
-            </Input>
-          </FormGroup>
-          <FormGroup>
-            <Label for="sex">Sex:</Label>
-            <Input value={this.state.sex}
-              onChange={(e) => this.handleChange(e)}
-              type="select"
-              id="sex"
-              name="sex">
-              <option value="F">Male</option>
-              <option value="M">Female</option>
-            </Input>
-          </FormGroup>
-          <FormGroup>
-            <Label for="motivation">Motivation:</Label>
-            <Input value={this.state.motivation}
-              onChange={e => this.change(e)}
-              type="textarea"
-              name="motivation"
-              id="motivation"
-              placeholder="Why are you playing ELLE?">
-            </Input>
-          </FormGroup>
-          <FormGroup>
             <Label for="password">Password:</Label>
             <Input value={this.state.password}
               onChange={e => this.change(e)}
-              type="text"
               id="password"
               name="password"
+              type="password"
               placeholder="*********">
             </Input>
           </FormGroup>
+          <FormGroup>
+            <Label for="confirm">Confirm Password:</Label>
+            <Input value={this.state.confirm}
+              onChange={e => this.change(e)}
+              id="confirm"
+              name="confirm"
+              type="password"
+              placeholder="*********">
+            </Input>
+          </FormGroup>
+
+          <FormGroup>
+            <Label for="pass_question">Security Question:</Label>
+            <Input value={this.state.pass_question}
+              onChange={(e) => this.handleChange(e)}
+              type="select"
+              id="pass_question"
+              name="pass_question">
+              <option value="1">What is your favorite book?</option>
+              <option value="2">What is the name of the road you grew up on?</option>
+              <option value="3">What is the name of your favorite pet?</option>
+              <option value="4">What is your favorite food?</option>
+              <option value="5">What was the model of your first car?</option>
+            </Input>
+          </FormGroup>
+          <FormGroup>
+            <Label for="pass_answer">Security Answer:</Label>
+            <Input value={this.state.pass_answer}
+              onChange={e => this.change(e)}
+              id="pass_answer"
+              name="pass_answer"
+              placeholder="Answer"
+              type = "text"
+            />
+          </FormGroup>
+
           <FormGroup>
             <Label for="classID">Class ID (Optional):</Label>
             <Input value={this.state.classID}
@@ -140,6 +159,8 @@ export default class Signup extends React.Component {
               placeholder="Enter Class ID">
             </Input>
           </FormGroup>
+         
+
           <Button color="primary" type="submit" className="btn-block">Signup</Button>
         </Form>
         <br></br>

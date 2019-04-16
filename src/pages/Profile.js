@@ -118,6 +118,8 @@ submitPass(e) {
             value={this.state.newpass} />
           </FormGroup>
           <Button type="submit">Submit New Password</Button>
+          
+
 		  
         </Form>
 		<br/>

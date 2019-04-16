@@ -14,6 +14,7 @@ export default class Login extends Component {
     this.state = {
       username: '',
       password: '',
+      message: '',
     };
     this.change = this.change.bind(this);
     this.submit = this.submit.bind(this);
@@ -38,8 +39,14 @@ export default class Login extends Component {
       localStorage.setItem('per', res.data.permissions);
       localStorage.setItem('userID',res.data.id);
       console.log(localStorage.getItem('userID'));
-      this.props.history.push('/decks');
-    });
+      this.props.history.push('/profile');
+    }).catch(error =>{
+          console.log(error);
+          console.log(error.message);
+          console.log(error.response.data);
+          console.log(error.response.data.message);
+          this.setState({ 'message': error.response.data.message });
+        });
   }
 
   render() {
@@ -68,6 +75,12 @@ export default class Login extends Component {
       <div className="row main" >
         <div className="main-login main-center">
           <h4 style={{textAlign: 'center'}}>Welcome back to ELLE.</h4>
+          {
+            this.state.message != '' &&
+            <div class="alert alert-danger" role="alert">
+             {this.state.message}
+            </div>
+          }
           <Form onSubmit={e => this.submit(e)}>
             <FormGroup>
               <Label for="userName">Username:</Label>
