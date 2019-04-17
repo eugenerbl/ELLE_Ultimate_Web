@@ -13,11 +13,10 @@ export default class Profile extends React.Component {
         username: "Temp",
         permissionGroup: "Admin",
         isPendingAdmin: "1",
-        sex: "T",
-        age: "18",
-        motivation: "Test",
+        motivation: "",
         newpass: "",
-        repass: ""
+        confirm: "",
+        classID: "",
     };
 
     this.change = this.change.bind(this);
@@ -35,6 +34,7 @@ submitPass(e) {
     var data = {
           userID: this.state.userID,
           pw: this.state.newpass,
+          confirm: this.state.confirm,
     }
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('jwt')
@@ -45,7 +45,7 @@ submitPass(e) {
         }).catch(function (error) {
           console.log(error);
         });
-        this.setState({newpass: ""});
+        this.setState({newpass: "",confirm: ""});
   }
 
   componentDidMount() {
@@ -57,8 +57,7 @@ submitPass(e) {
           this.setState({
             userID: res.data.id,
             username: res.data.username,
-            sex: res.data.sex,
-            age: res.data.age,
+            classID: res.data.classID,
             motivation: res.data.motivation, });
         }).catch(function (error) {
           console.log(error);
@@ -83,22 +82,6 @@ submitPass(e) {
             value={this.state.username} />
           </FormGroup>
           <FormGroup>
-            <Label for="age">Age</Label>
-            <Input type="number"
-            name="age"
-            id="age"
-            disabled
-            value={this.state.age} />
-          </FormGroup>
-          <FormGroup>
-            <Label for="sex">Sex</Label>
-            <Input type="text"
-            name="sex"
-            id="sex"
-            disabled
-            value={this.state.sex} />
-          </FormGroup>
-          <FormGroup>
             <Label for="motivation">Motivation:</Label>
             <Input type="textarea"
             name="motivation"
@@ -106,17 +89,33 @@ submitPass(e) {
             disabled
             value={this.state.motivation} />
           </FormGroup>
+          <FormGroup>
+            <Label for="classID">Class ID:</Label>
+            <Input type="text"
+            name="classID"
+            id="classID"
+            disabled
+            value={this.state.classID} />
+          </FormGroup>
         </Form>
         
         <Form className="PasswordReset" onSubmit={e => this.submitPass(e)}>
         <h3>Reset Password</h3>
           <FormGroup>
-            <Label for="newpass">Enter your new password below.</Label>
-            <Input type="text"
+            <Label for="newpass">Enter New Password:</Label>
+            <Input type="password"
             name="newpass"
             id="newpass"
             onChange={e => this.change(e)}
             value={this.state.newpass} />
+          </FormGroup>
+          <FormGroup>
+            <Label for="confirm">Confirm Password:</Label>
+            <Input type="password"
+            name="confirm"
+            id="confirm"
+            onChange={e => this.change(e)}
+            value={this.state.confirm} />
           </FormGroup>
           <Button type="submit">Submit New Password</Button>
           

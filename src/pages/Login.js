@@ -37,7 +37,7 @@ export default class Login extends Component {
   }
 
   forgotPass(e){
-    axios.get(this.props.serviceIP + '/forgot/'+ this.state.username,{
+    axios.post(this.props.serviceIP + '/forgot/'+ this.state.username,{
     }).then(res=>{
       localStorage.setItem('forgot_user',this.state.username);
       this.props.history.push('/recover');
@@ -84,7 +84,6 @@ export default class Login extends Component {
           <nav id="nav-menu-container">
             <ul className="nav-menu">
               <li><Link to='/downloads'>Download</Link></li>
-              <li><Link to='/profile'>My Profile</Link></li>
               <li><Link to='/login'>Log In</Link></li>
 							<li><Link to='/signup'>Sign Up</Link></li>
 							<li><a href="https://www.github.com/ItsNotRick/elle" className="github"><i className="fa fa-github fa-lg"></i></a></li>
@@ -102,12 +101,7 @@ export default class Login extends Component {
              {this.state.message}
             </div>
           }
-          {
-            this.state.forgot == true &&
-            <div className="alert alert-primary" role="alert">
-             Enter username then click the "Forgot Password" button.
-            </div>
-          }
+          
           <Form onSubmit={e => this.submit(e)}>
             <FormGroup>
               <Label for="userName">Username:</Label>
@@ -116,7 +110,7 @@ export default class Login extends Component {
                 value={this.state.username}
                 id="username" placeholder="Username" />
             </FormGroup>
-            {' '}
+           
             <FormGroup>
               <Label for="password">Password:</Label>
               <Input type="password" name="password"
@@ -124,25 +118,20 @@ export default class Login extends Component {
                 value={this.state.password}
                 id="password" placeholder="Password" />
             </FormGroup>
-            {' '}
             
-            {
-            this.state.forgot == false &&
+            
+            
             <Button color="primary" type="submit" className="btn-block">Submit</Button>
-            }
-            {
-            this.state.forgot == true &&
-            <Button color="primary" onClick={ e => this.forgotPass(e)} className="btn-block">Forgot Password</Button>
-            }
+            
           </Form>
+          <br></br>
+          <Link to ='/recover' style={{color: 'white'}}>Forgot Your Password?</Link>
           <br></br>
 					<p>
 						Don't have an account? &nbsp;
 						<Link to ='/signup' style={{color: 'white', textDecoration: 'underline'}}>Create one.</Link>
-            Forgot Your Password? &nbsp;
-            <a href="#" onClick = { e => this.handleClick(e)}>
-            Click me
-            </a>
+            <br></br>
+            
 					</p>
         </div>
       </div>

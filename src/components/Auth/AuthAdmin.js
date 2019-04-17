@@ -18,7 +18,7 @@ class AuthAdmin extends Component {
     if(!jwt) {
       this.props.history.push('/home');
     }else if (per === 'at' || per === 'us') {
-      this.props.history.push('/sessions');
+      this.props.history.push('/profile');
     }
   }
 

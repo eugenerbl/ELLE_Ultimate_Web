@@ -20,7 +20,6 @@ const Home = (props) => {
 				<nav id="nav-menu-container">
 					<ul className="nav-menu">
 						<li><Link to='/downloads'>Download</Link></li>
-						<li><Link to='/profile'>My Profile</Link></li>
 						<li><Link to='/login'>Log In</Link></li>
 						<li><Link to='/signup'>Sign Up</Link></li>
 						<li><a href="https://www.github.com/ItsNotRick/elle" className="github"><i className="fa fa-github fa-lg"></i></a></li>
@@ -125,7 +124,7 @@ const Home = (props) => {
 					{/*<div className="pic"><img src={require('../Images/ELLE/team-1.jpg')} alt=""/></div>*/}
 						<div className="details">
 							<h4>Kalonte Jackson-Tate</h4>
-							<span>Database / Front End API</span>
+							<span>Front End Developer / Database / API</span>
 							<div className="social">
 								{/*<a href><i className="fa fa-twitter" /></a>
 								<a href><i className="fa fa-facebook" /></a>
